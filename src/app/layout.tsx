@@ -6,13 +6,11 @@ import { Motion } from "@/components/Motion";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { RouteCurtain } from "@/components/RouteCurtain";
 import { site, masthead } from "@/data/site";
 
 const inter = Inter({
   subsets: ["latin"],
-  // The home grid sets its titles in a light italic; without the italic
-  // cut the browser slants the roman, which looks cheap at display sizes.
-  style: ["normal", "italic"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -101,6 +99,7 @@ export default function RootLayout({
               on the index every pixel here comes out of the artwork. */}
             <main className="pt-[4.5rem] md:pt-[5.5rem]">{children}</main>
             <Footer />
+            <RouteCurtain />
           </Motion>
         </ThemeProvider>
       </body>

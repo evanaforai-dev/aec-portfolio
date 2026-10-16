@@ -21,9 +21,6 @@ export function Footer() {
   const linkClass =
     "inline-flex min-h-[24px] items-center label text-accent transition-colors duration-300 ease-editorial hover:underline hover:underline-offset-4";
 
-  // The grid is the whole home page; its links live on the red ball.
-  if (onIndex || pathname.startsWith("/work/")) return null;
-
   return (
     <footer className="border-t border-hairline">
       <div className="flex flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-8">

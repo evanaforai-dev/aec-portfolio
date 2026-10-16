@@ -74,10 +74,18 @@ export function ProjectCard({
   const corner =
     "pointer-events-none absolute z-10 h-1.5 w-1.5 bg-white mix-blend-difference opacity-0 transition-opacity duration-300 ease-editorial group-hover:opacity-100 group-focus-visible:opacity-100";
 
+  // Projects whose page is a static file in /public, not a case-study route.
+  const outside = project.link?.startsWith("/") ? project.link : undefined;
+
   return (
     <Link
       ref={rootRef}
-      href={`/work/${project.slug}`}
+      href={outside ?? `/work/${project.slug}`}
+      prefetch={outside ? false : undefined}
+      onClick={(e) => {
+        // A page outside the app has no route to navigate to client-side.
+        if (outside) { e.preventDefault(); window.location.assign(asset(outside)); }
+      }}
       aria-label={label}
       onPointerEnter={() => animated && !reduceMotion && setLive(true)}
       onPointerLeave={() => setLive(false)}

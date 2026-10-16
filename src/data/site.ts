@@ -75,13 +75,13 @@ export const masthead = {
 export const registers = [
   {
     key: "work" as const,
-    label: "office hours",
-    note: "product work, for a company or a client",
+    label: "tools",
+    note: "software for the people who design buildings, and the ai products behind it",
   },
   {
     key: "playground" as const,
-    label: "after hours",
-    note: "self-initiated. designed, built, and still being built",
+    label: "buildings",
+    note: "architecture at spa new delhi, where the questions came from",
   },
 ];
 

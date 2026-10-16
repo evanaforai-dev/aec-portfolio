@@ -17,7 +17,6 @@ export const projects: Project[] = [
     title: "counterweight",
     tags: ["aec tooling", "product design", "design engineering"],
     category: "work",
-    context: "self-initiated",
     cover: "/covers/counterweight.jpg",
     year: "2026",
     summary:
@@ -30,7 +29,6 @@ export const projects: Project[] = [
     title: "airtribe ai skills",
     tags: ["ai product design", "design systems", "learning design"],
     category: "work",
-    context: "startup",
     /*
      * Kai's landing surface, composed on a transparent ground. Contained
      * rather than filled: the art is drawn to its own edges and cropping it
@@ -49,7 +47,6 @@ export const projects: Project[] = [
     title: "vision",
     tags: ["product design", "payments", "internal tooling"],
     category: "work",
-    context: "startup",
     // The sheet the product replaced, redacted. No capture of vision itself can
     // leave, and this is the more honest tile anyway: the case study is about
     // killing this thing, and nothing else on the index looks remotely like it.
@@ -63,7 +60,7 @@ export const projects: Project[] = [
     slug: "lipi",
     title: "lipi",
     tags: ["developer tooling", "design systems", "interaction design", "prototyping"],
-    category: "playground",
+    category: "work",
     cover: "/covers/lipi-tile.gif",
     year: "2026",
     summary:
@@ -80,11 +77,23 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "kochi1app",
+    title: "kochi1app",
+    tags: ["service design", "ux research", "mobility"],
+    category: "work",
+    cover: "/covers/kochi1app.jpg",
+    year: "2024",
+    summary:
+      "a service-design redesign of kochi's official transit app: plan a trip by intention, nudge greener journeys, and design the first and last mile.",
+    link: "https://www.behance.net/gallery/212543637/Public-Transport-Systems-Service-Design",
+    // wide editorial hero (hands, phone, metro tunnel), filled full-bleed.
+    display: { fit: "cover" },
+  },
+  {
     slug: "gateway-to-kerala",
     title: "gateway to kerala",
     tags: ["architecture", "transit-oriented development", "mixed use"],
     category: "playground",
-    context: "b.arch thesis",
     cover: "/case/gateway-to-kerala/01.jpg",
     year: "2023",
     summary:
@@ -96,8 +105,7 @@ export const projects: Project[] = [
     title: "madipur general hospital",
     tags: ["architecture", "healthcare", "building services"],
     category: "playground",
-    context: "academic",
-    cover: "/case/madipur-hospital/01.jpg",
+    cover: "/case/madipur-hospital/20.jpg",
     year: "2021",
     summary:
       "a 600-bed general hospital in west delhi, planned against bylaws, fire, water and sun, in a group of three.",
@@ -108,7 +116,6 @@ export const projects: Project[] = [
     title: "vytilla junction",
     tags: ["urban mobility", "traffic", "urban design"],
     category: "playground",
-    context: "self-initiated",
     cover: "/case/vytilla-junction/01.jpg",
     year: "2024",
     summary:
@@ -116,25 +123,10 @@ export const projects: Project[] = [
     display: { fit: "cover", position: "center" },
   },
   {
-    slug: "kochi1app",
-    title: "kochi1app",
-    tags: ["service design", "ux research", "mobility"],
-    category: "work",
-    context: "academic",
-    cover: "/covers/kochi1app.jpg",
-    year: "2024",
-    summary:
-      "a service-design redesign of kochi's official transit app: plan a trip by intention, nudge greener journeys, and design the first and last mile.",
-    link: "https://www.behance.net/gallery/212543637/Public-Transport-Systems-Service-Design",
-    // wide editorial hero (hands, phone, metro tunnel), filled full-bleed.
-    display: { fit: "cover" },
-  },
-  {
     slug: "basant-lok",
     title: "reimagining community centres",
     tags: ["urban design", "public realm", "delhi"],
     category: "playground",
-    context: "academic",
     cover: "/case/basant-lok/19.jpg",
     year: "2023",
     summary:
@@ -146,7 +138,6 @@ export const projects: Project[] = [
     title: "into the tall grass",
     tags: ["installation", "kinetic", "interaction"],
     category: "playground",
-    context: "academic",
     cover: "/case/into-the-tall-grass/04.jpg",
     year: "2021",
     summary:

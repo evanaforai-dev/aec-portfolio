@@ -23,10 +23,6 @@ export function Nav() {
     { label: "about", href: "/about", current: onAbout },
   ];
 
-  // The home grid carries its own chrome (the pro tile, the red ball's
-  // links, a top bar on phones), so the site nav stays off it.
-  if (onIndex || pathname.startsWith("/work/")) return null;
-
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-bg/80 backdrop-blur-sm">
       <div className="flex items-center justify-between gap-4 px-6 py-5 md:px-8">

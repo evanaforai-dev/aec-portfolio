@@ -28,11 +28,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "kochi's official transit app, 100,000+ downloads at 2.5 stars, could find a route but not say what the trip would be like.",
-        did: "ran the service-design study, riders, staff and management, and redesigned the app around travel intention, transfers and the last mile.",
-        result: "sus 80 with sixteen participants and full completion on two of three tasks. the sustainability nudge failed: nine of sixteen never saw it.",
-      },
       meta: [
         { label: "role", value: "service design + ux" },
         { label: "context", value: "kochi metro · mobility app redesign" },
@@ -351,11 +346,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       mediaFit: "contain",
       mediaFrame: false,
-      tldr: {
-        problem: "the company's payments lived in one google sheet that sales, finance and onboarding all trusted and nobody wanted to leave.",
-        did: "led the research and the design decisions that moved it into airtribe's internal product in three phases, with views and role-based permissions.",
-        result: "three sheets became one table and the sheet stopped being the source of truth. scroll depth halved, with no re-learning period for sales.",
-      },
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -670,11 +660,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       mediaFit: "contain",
       mediaFrame: false,
-      tldr: {
-        problem: "fifty pre-reads by ten to fifteen non-visual authors were drifting off-brand, and ai learning tools answer questions rather than teach.",
-        did: "designed a design-language skill that governs only the look, and kai, an ai tutor that plans one cited lesson from four intake answers.",
-        result: "the skill carries about fifty pre-reads for 1,500+ learners; 60% of 420 surveyed called the format more engaging. kai reaches 10,000+ learners.",
-      },
       meta: [
         { label: "role", value: "product designer" },
         { label: "team", value: "four: two product designers, one backend, one frontend" },
@@ -1139,11 +1124,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       mediaFit: "cover",
       mediaPosition: "center",
       mode: "launch",
-      tldr: {
-        problem: "translated indic copy breaks layouts, and qa finds the breaks one screen at a time, so the same broken component gets fixed six times.",
-        did: "designed and built a figma plugin that translates screens into hindi or tamil, measures how the geometry moved and traces each break to its component.",
-        result: "a working plugin: repeated failures collapse into one component fix, re-check confirms it, and seven regression scripts cover the engine.",
-      },
       meta: [
         { label: "role", value: "design + direction, built with ai" },
         { label: "context", value: "self-initiated · localisation testing" },
@@ -1229,7 +1209,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           { type: "image", src: "/case/lipi/launch/reveal-panel.png", width: 1300, height: 1300, alt: "the reveal panel naming the exact layer" },
         ],
         captions: [
-          { label: "one design · multiple scripts", text: "a concept board for where lipi goes next: the same checkout across four scripts, one tab each. the build today runs hindi and tamil; the script detection is written for more, the translations are not." },
+          { label: "one design · multiple scripts", text: "lipi scans the same checkout across hindi, tamil, bengali and kannada in one pass: four language tabs, six screens each, eleven findings, and it flags each script's clipped cta on the canvas." },
           { label: "preview · reveal · compare", text: "english fits, hindi overflows. lipi reveals the pressure in context, and its reveal panel names the exact layer and the recommended fix." },
         ],
       },
@@ -1325,17 +1305,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kind: "constraints",
-        label: "how i built it with ai",
-        items: [
-          { label: "the plan came first", text: "an architecture document before any code: figma's sandbox and ui split, a typed message contract between them, and a written list of non-goals for a two-day first version." },
-          { label: "the plan changed", text: "it scoped detection for eleven indic scripts and ruled out machine translation. the build went the other way: two languages done properly, with translation in, so the plugin makes the copy it tests." },
-          { label: "checked, not trusted", text: "seven regression scripts run the engine: script detection, the measured delta, the diff, per-screen attribution, the impact roll-up, pressure and fixes." },
-          { label: "what came out", text: "five dead components deleted after the redesign, the results screen simplified in three passes, every spacing value snapped to a 4 and 8 grid." },
-          { label: "what it does not claim", text: "hindi and tamil only, heuristic detection, and tamil copy that needs a native speaker before public use. the readme says so." },
-        ],
-      },
-      {
         kind: "bleed",
         media: { type: "image", src: "/case/lipi/launch/languages-bleed.png", width: 2000, height: 1002, alt: "one design, many scripts" },
       },
@@ -1354,11 +1323,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: { type: "image", src: "/case/gateway-to-kerala/01.jpg", width: 2400, height: 1592, alt: "the thesis model at night, two lattice towers over a podium on the river" },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "vytilla is where kochi's buses, metro, water metro and national highway meet. the hub's second phase had to turn a place people pass through into one they stay in.",
-        did: "a podium of retail, culture and entertainment tied to the metro concourse, two towers of offices, a business centre and service apartments joined by a skywalk, and the river edge given back as public ground.",
-        result: "second best thesis at spa new delhi, 2023, and a charles correa gold medal finalist.",
-      },
       meta: [
         { label: "role", value: "architect, solo thesis" },
         { label: "context", value: "b.arch thesis, school of planning and architecture, new delhi" },
@@ -1367,6 +1331,15 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "full thesis on behance", href: "https://www.behance.net/gallery/186846123/t-h-e-s-i-s" }],
     },
     sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "vytilla is where kochi's buses, metro, water metro and national highway meet. the hub's second phase had to turn a place people pass through into one they stay in." },
+          { label: "what i did", text: "a podium of retail, culture and entertainment tied to the metro concourse, two towers of offices, a business centre and service apartments joined by a skywalk, and the river edge given back as public ground." },
+          { label: "result", text: "second best thesis at spa new delhi, 2023, and a charles correa gold medal finalist." },
+        ],
+      },
       { kind: "thesis", eyebrow: "thesis", text: "a transit hub is usually designed for the minute between two vehicles. this one asks what it would take for the same ground to work for the office-goer, the visitor, a family on a sunday, and the city seen from the flyover." },
       {
         kind: "full",
@@ -1439,14 +1412,9 @@ export const caseStudies: Record<string, CaseStudy> = {
       title: "madipur general hospital",
       subtitle:
         "a 600-bed general hospital in west delhi, with housing on the same site, planned around how patients, staff and services move, and checked against every rule that applies.",
-      media: { type: "image", src: "/case/madipur-hospital/01.jpg", width: 2400, height: 1350, alt: "white massing model of the hospital towers over a podium" },
+      media: { type: "image", src: "/case/madipur-hospital/20.jpg", width: 2400, height: 1695, alt: "rendered view of the hospital towers over the podium" },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "a hospital is the most regulated building most architects will draw: departments that must touch, flows that must never cross, and every bylaw at once.",
-        did: "zoned seventeen floors and two basements by level of care, then tested the scheme against coverage, setbacks, parking, fire access, stormwater and solar radiation.",
-        result: "a scheme where every department's position is argued by a rule or a flow, with every check done by hand.",
-      },
       meta: [
         { label: "role", value: "architect, in a group of three with athul raghunath and ejas muhammed" },
         { label: "context", value: "hospital design studio, spa new delhi" },
@@ -1455,6 +1423,15 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "full project on behance", href: "https://www.behance.net/gallery/208697909/Madipur-General-Hospital-Proposal" }],
     },
     sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "a hospital is the most regulated building most architects will draw: departments that must touch, flows that must never cross, and every bylaw at once." },
+          { label: "what i did", text: "zoned seventeen floors and two basements by level of care, then tested the scheme against coverage, setbacks, parking, fire access, stormwater and solar radiation." },
+          { label: "result", text: "a scheme where every department's position is argued by a rule or a flow, with every check done by hand." },
+        ],
+      },
       { kind: "thesis", eyebrow: "the problem", text: "in a hospital the plan is a set of adjacencies with a building around it. emergency beside diagnostics, critical care above emergency, and the services somewhere no visitor will ever see them." },
       {
         kind: "full",
@@ -1506,9 +1483,10 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kind: "full",
-        media: { type: "image", src: "/case/madipur-hospital/20.jpg", width: 2400, height: 1695, alt: "rendered view of the hospital" },
-        fit: "cover",
-        caption: "the hospital from the street.",
+        media: { type: "image", src: "/case/madipur-hospital/01.jpg", width: 2400, height: 1350, alt: "white massing model of the hospital towers over a podium" },
+        fit: "contain",
+        frame: true,
+        caption: "the scheme as a massing model: two ward towers over a podium of outpatient and critical care.",
       },
       {
         kind: "duo",
@@ -1533,11 +1511,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: { type: "image", src: "/case/vytilla-junction/01.jpg", width: 2400, height: 1351, alt: "vytilla junction traffic, an alternative approach" },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "vytilla junction stayed a bottleneck after the flyover was built, and at the morning peak every signalled arm ran over capacity.",
-        did: "read the junction from passenger car unit counts and signal timings, then redrew circulation as loops around two squares under the flyover, with the hub inside the junction rather than beside it.",
-        result: "a concept with no signals and no crossing paths, plus bus bays, pedestrian zones and parking for the first and last mile.",
-      },
       meta: [
         { label: "role", value: "solo: analysis and design concept" },
         { label: "context", value: "mobility concept, kochi" },
@@ -1546,6 +1519,15 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "full project on behance", href: "https://www.behance.net/gallery/215075201/Junction-Mobility-Design-Concept" }],
     },
     sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "vytilla junction stayed a bottleneck after the flyover was built, and at the morning peak every signalled arm ran over capacity." },
+          { label: "what i did", text: "read the junction from passenger car unit counts and signal timings, then redrew circulation as loops around two squares under the flyover, with the hub inside the junction rather than beside it." },
+          { label: "result", text: "a concept with no signals and no crossing paths, plus bus bays, pedestrian zones and parking for the first and last mile." },
+        ],
+      },
       { kind: "thesis", eyebrow: "the problem", text: "the mobility hub was built to fix vytilla. it cannot, while the junction outside it still stops every vehicle that reaches it." },
       {
         kind: "full",
@@ -1594,11 +1576,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: { type: "image", src: "/case/basant-lok/07.jpg", width: 2400, height: 1074, alt: "aerial view of the proposed precinct" },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "a planned community centre cut through by a city connector road, with metro gates inside the site and greens the master plan makes mandatory.",
-        did: "read two precedents as dos and don'ts, mapped the neighbourhood and the site, and planned a mixed precinct around the three constraints that could not move.",
-        result: "a precinct of offices, housing and public space, drawn from neighbourhood scale down to floor plans.",
-      },
       meta: [
         { label: "role", value: "urban designer, in a group of four with ejas, athul and sahiba" },
         { label: "context", value: "urban design studio, spa new delhi" },
@@ -1607,6 +1584,15 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "the publication on behance", href: "https://www.behance.net/gallery/208716931/Urban-Design" }],
     },
     sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "a planned community centre cut through by a city connector road, with metro gates inside the site and greens the master plan makes mandatory." },
+          { label: "what i did", text: "read two precedents as dos and don'ts, mapped the neighbourhood and the site, and planned a mixed precinct around the three constraints that could not move." },
+          { label: "result", text: "a precinct of offices, housing and public space, drawn from neighbourhood scale down to floor plans." },
+        ],
+      },
       {
         kind: "full",
         media: { type: "image", src: "/case/basant-lok/02.jpg", width: 2400, height: 1604, alt: "precedent studies of wuhan yangchun lake and cyber city gurugram" },
@@ -1649,11 +1635,6 @@ export const caseStudies: Record<string, CaseStudy> = {
       media: { type: "image", src: "/case/into-the-tall-grass/04.jpg", width: 2400, height: 1350, alt: "people walking under the canopy of hanging strands" },
       mediaFit: "cover",
       mediaPosition: "center",
-      tldr: {
-        problem: "learning rarely leaves the four walls of a classroom, and public space rarely responds to the person standing in it.",
-        did: "a canopy of 1 m modules of sixteen strands each, lifted by motors when weight sensors in the floor detect someone, with each module drawn from a pattern in phulkari embroidery.",
-        result: "a private bubble that follows each visitor through the grid and closes again behind them.",
-      },
       meta: [
         { label: "role", value: "designer, group project" },
         { label: "context", value: "semester project, spa new delhi" },
@@ -1662,6 +1643,15 @@ export const caseStudies: Record<string, CaseStudy> = {
       links: [{ label: "full project on behance", href: "https://www.behance.net/gallery/128552701/Into-the-Tall-Grass" }],
     },
     sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "learning rarely leaves the four walls of a classroom, and public space rarely responds to the person standing in it." },
+          { label: "what i did", text: "a canopy of 1 m modules of sixteen strands each, lifted by motors when weight sensors in the floor detect someone, with each module drawn from a pattern in phulkari embroidery." },
+          { label: "result", text: "a private bubble that follows each visitor through the grid and closes again behind them." },
+        ],
+      },
       {
         kind: "flow",
         label: "how it responds",

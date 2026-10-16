@@ -70,12 +70,6 @@ export interface CaseHero {
    * object: the page presents the thing rather than filing a report on it.
    */
   mode?: "document" | "launch";
-  /**
-   * The page in three lines, for a reader with two minutes: the problem, what
-   * was done, and what came of it. Set under the subtitle, above the meta
-   * band, so it is the first thing read after the title.
-   */
-  tldr?: { problem: string; did: string; result: string };
   meta: CaseMeta[];
   links?: CaseLink[];
 }

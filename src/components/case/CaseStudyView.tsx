@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { CaseShell } from "./CaseShell";
-import { hookOf, contextOf, keywordsOf } from "@/data/hooks";
-import { home } from "@/data/home";
 import type { CaseStudy } from "@/types/caseStudy";
 import { projects } from "@/data/projects";
+import { caseStudies } from "@/data/caseStudies";
 import { Reveal } from "@/components/Reveal";
 import { Media, Container } from "./Media";
 import { renderSection } from "./Sections";
@@ -31,7 +29,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
    * project". That is how kai, which is a chapter of the airtribe ai skills
    * page, appeared underneath it as the thing to read next.
    */
-  const ordered = projects.filter((p) => !p.unlisted);
+  // Only projects with a case-study route can be stepped to.
+  const ordered = projects.filter((p) => !p.unlisted && p.slug in caseStudies);
   // An unlisted study is not in `ordered`; anchor it at the top of the list
   // rather than letting findIndex's -1 wrap into an arbitrary pair.
   const idx = Math.max(
@@ -41,8 +40,6 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   const prev = ordered[(idx - 1 + ordered.length) % ordered.length];
   const next = ordered[(idx + 1) % ordered.length];
   const { hero } = study;
-  const project = projects.find((p) => p.slug === study.slug);
-  const ctx = project ? contextOf(project) : undefined;
   const launch = hero.mode === "launch";
 
   // Literal class names, so Tailwind's content scan can see them.
@@ -56,24 +53,20 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
     }[Math.min(hero.meta.length, 5)] ?? "lg:grid-cols-4";
 
   return (
-    <CaseShell
-      slug={study.slug}
-      section={project?.category === "playground" ? "itch" : "pro"}
-      links={home.links}
-      wheel={home.wheel}
-    >
     <article>
-      {/* The same title block the home grid's split panel shows, in the same
-          place, so the page arrives under it without a jump. */}
-      <header className="case-head">
-        {ctx && <span className="c-ctx">{ctx}</span>}
-        <h1 className="c-title">{project?.title ?? hero.title}</h1>
-        <p className="c-tags">{project ? hookOf(project) : hero.subtitle}</p>
-        {project && keywordsOf(project) && <p className="c-kw">{keywordsOf(project)}</p>}
-      </header>
+      {/* Back to the index. Says "work" because that is what the nav and the
+          footer call it; "index" was a third word for one place. */}
+      <Container className="pt-4 md:pt-6">
+        <Link
+          href="/"
+          className="inline-flex min-h-[24px] items-center label text-accent underline-offset-4 transition-colors hover:underline"
+        >
+          ← all work
+        </Link>
+      </Container>
 
       {/* Opening visual. Absent on the pages that open on their title. */}
-      <div className={!hero.media ? "" : "mt-12 md:mt-16"}>
+      <div className={!hero.media ? "" : launch ? "mt-2 md:mt-4" : "mt-6 md:mt-8"}>
         {!hero.media ? null : launch ? (
           // No frame, no container, no gutter: the object gets the viewport
           // and stands on its own ground. A hairline box around a product is
@@ -117,24 +110,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
       {/* Title + metadata band */}
       <Container className="py-12 md:py-20">
         {hero.kicker && <p className="label mb-6">{hero.kicker}</p>}
-        <p className="measure t-lead text-fg">{hero.subtitle}</p>
-
-        {hero.tldr && (
-          <dl className="mt-12 grid gap-px border-t border-hairline md:mt-16 md:grid-cols-3">
-            {(
-              [
-                ["the problem", hero.tldr.problem],
-                ["what i did", hero.tldr.did],
-                ["what came of it", hero.tldr.result],
-              ] as const
-            ).map(([label, text]) => (
-              <div key={label} className="border-b border-hairline py-5 pr-8">
-                <dt className="label">{label}</dt>
-                <dd className="mt-3 t-note text-fg">{text}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
+        <h1 className="max-w-[18ch] t-display text-fg">{hero.title}</h1>
+        <p className="mt-6 measure t-lead text-fg">{hero.subtitle}</p>
 
         {/*
           One row, always. Fixed at four columns, a five-item band wrapped its
@@ -192,6 +169,5 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
         <ProjectNavPreview prev={prev} next={next} />
       </Reveal>
     </article>
-    </CaseShell>
   );
 }

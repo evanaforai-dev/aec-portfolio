@@ -112,13 +112,6 @@ export interface Project {
     poster?: string;
   };
 
-  /**
-   * Who the work was for, as a short chip on the home grid: "startup",
-   * "enterprise", "academic". Self-initiated work leaves it out and the grid
-   * labels it "self-initiated" from its category.
-   */
-  context?: string;
-
   // Optional metadata (retained from the case-study schema).
   role?: string;
   client?: string;

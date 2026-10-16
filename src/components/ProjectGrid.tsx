@@ -51,15 +51,16 @@ import { ProjectCard } from "./ProjectCard";
  * enough to publish it.
  */
 const LAYOUT: string[] = [
-  "vision",
+  "counterweight",
   "airtribe-ai-skills",
-  "kochi1app",
-  "wells-fargo",
+  "vision",
   "lipi",
-  "kochi-water-metro",
-  "a-century-of-villains",
-  "soundmap",
-  "deep-cuts",
+  "kochi1app",
+  "gateway-to-kerala",
+  "madipur-hospital",
+  "vytilla-junction",
+  "basant-lok",
+  "into-the-tall-grass",
 ];
 
 // `unlisted` projects keep their route and drop off the index.

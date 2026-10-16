@@ -1,11 +1,16 @@
-import { HomeGrid } from "@/components/home/HomeGrid";
-import { home } from "@/data/home";
+import { ProjectGrid } from "@/components/ProjectGrid";
+import { Masthead } from "@/components/Masthead";
 
 /**
- * Home = the grid, edge to edge. Portraits mark the sections (who, then
- * company work, then after hours), the red ball carries the links, and every
- * line of the grid is elastic. See components/home/engine.js.
+ * Home = a masthead, then the project index: designed objects placed on a
+ * persistent architectural grid. The grid owns its own layout and measures
+ * itself against whatever the masthead leaves it (see ProjectGrid).
  */
 export default function HomePage() {
-  return <HomeGrid config={home} />;
+  return (
+    <>
+      <Masthead />
+      <ProjectGrid />
+    </>
+  );
 }

@@ -240,3 +240,55 @@ body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/*
+ * ROUTE CURTAIN — the page transition.
+ *
+ * This deployment cannot navigate client-side: Next asks for the RSC payload
+ * at the route URL behind an `RSC` header, and a static host cannot vary on a
+ * header, so it answers with HTML and Next falls back to a full document load.
+ * Every navigation is therefore a fresh document, and the transition is built
+ * as two halves of one sweep across that boundary — cover on the way out,
+ * reveal on the way in.
+ *
+ * The reveal is CSS rather than script on purpose: the panels are painted
+ * covering the view, so if it waited on JS a slow bundle would leave the page
+ * hidden. As a stylesheet rule it runs at first paint and cannot get stuck.
+ */
+@keyframes route-curtain-reveal {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.route-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 60; /* over the nav too: a hard load reloads the chrome as well */
+  display: flex;
+  pointer-events: none;
+}
+
+.route-curtain__panel {
+  flex: 1 1 0%;
+  height: 100%;
+  background: var(--bg);
+  transform: translateY(0);
+  will-change: transform;
+  animation: route-curtain-reveal 280ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.route-curtain__panel:not(:last-child) {
+  border-right: 1px solid var(--hairline);
+}
+
+/* Nothing to reveal and nothing to cover: sit off-screen from the start. */
+@media (prefers-reduced-motion: reduce) {
+  .route-curtain__panel {
+    animation: none;
+    transform: translateY(100%);
+  }
+}
