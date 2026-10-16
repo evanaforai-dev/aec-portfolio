@@ -1,0 +1,208 @@
+/*
+ * HOME GRID. Scoped under .home so none of these short class names leak into
+ * the rest of the site. Colours are measured from the reference (white
+ * ground, 1px #dedede lines); the one colour on the page is the red ball.
+ */
+.home {
+  --bg: #ffffff;
+  --fg: #111111;
+  --line: #dedede;
+  --dim: #8a8a8a;
+  --obj: #ececec;
+  --red: #ff3a1c;
+  position: relative;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.dark .home {
+  --bg: #0b0b0b;
+  --fg: #f2f2f2;
+  --line: #262626;
+  --dim: #7a7a7a;
+  --obj: #1d1d1d;
+}
+/* The home page is the grid, edge to edge: no site chrome, no top padding. */
+body:has(.home) { background: #ffffff; }
+.dark body:has(.home) { background: #0b0b0b; }
+main:has(> .home) { padding-top: 0 !important; }
+html.home-locked, html.home-locked body { overflow: hidden; }
+
+/* ---- phone top bar: one line about you, every link ---- */
+.home .nav { position: sticky; top: 0; z-index: 400; background: var(--bg); border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 1fr; align-items: stretch; }
+.home .nav .me { padding: 12px 16px; font-size: 13px; line-height: 1.35; display: flex; flex-wrap: wrap; gap: 0 10px; align-items: baseline; min-width: 0; }
+.home .nav .me b { font-weight: 400; }
+.home .nav .me i { font-weight: 300; color: var(--dim); }
+.home .nav .ln { display: flex; border-top: 1px solid var(--line); }
+.home .nav .ln a { flex: 1; display: grid; place-items: center; padding: 11px 0; font-size: 12px; color: var(--fg); text-decoration: none; border-left: 1px solid var(--line); }
+.home .nav .ln a:first-child { border-left: 0; }
+.home .nav .ln a:hover, .home .nav .ln a:focus-visible { font-style: italic; }
+@media (min-width: 650px) { .home .nav { display: none; } }
+
+/* ---- grid ---- */
+.home .grid { position: relative; width: 100%; }
+.home .cell { position: absolute; overflow: hidden; outline: none; color: inherit; text-decoration: none; background: var(--bg);
+  opacity: 0; transition: opacity .7s ease; will-change: transform; }
+.home .cell.in { opacity: 1; }
+.home a.cell { cursor: pointer; }
+.home .cell:focus-visible::after { content: ""; position: absolute; inset: 6px; border: 1px solid var(--fg); z-index: 4; }
+
+.home .strings { position: absolute; inset: 0; z-index: 100; pointer-events: none; overflow: visible; }
+.home .strings svg { position: absolute; overflow: visible; will-change: transform; }
+.home .strings path { fill: none; stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+
+.home .blur { position: absolute; inset: 0; transition: filter .35s cubic-bezier(.22,1,.36,1); }
+.home .grid.hovering .cell:not(.on) .blur { filter: blur(6px); }
+
+.home .obj { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .55s cubic-bezier(.22,1,.36,1); }
+.home .cell.on .obj { transform: translateY(-10%); }
+.home .ph { width: 26%; aspect-ratio: 1; background: var(--obj); border-radius: 50%; }
+/* Covers float as objects in the middle of the cell, like the reference. */
+.home .thumb { width: 64%; aspect-ratio: 1; position: relative; }
+.home .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.home .thumb.cover img { object-fit: cover; }
+.home .thumb.contain { width: 72%; }
+.home .thumb.contain img { object-fit: contain; }
+
+.home .label { position: absolute; left: 0; right: 0; bottom: 0; height: 31%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 0 12px; text-align: center; transform: translateY(101%); transition: transform .5s cubic-bezier(.22,1,.36,1); z-index: 3; }
+.home .cell.on .label { transform: none; }
+.home .label .t { font-style: italic; font-weight: 300; font-size: clamp(14px, 1.35vw, 19px); clip-path: inset(0 100% 0 0);
+  transition: clip-path .7s cubic-bezier(.65,0,.35,1) .12s; }
+.home .cell.on .label .t { clip-path: inset(0 0 0 0); }
+.home .label .tags { font-size: 11px; color: var(--dim); opacity: 0; transition: opacity .3s .35s; }
+.home .cell.on .label .tags { opacity: 1; }
+.home .label .kw { font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); opacity: 0; transition: opacity .3s .45s; }
+.home .cell.on .label .kw { opacity: 1; }
+.home .home-rail { display: none; opacity: 0; transition: opacity .35s; pointer-events: none; z-index: 295; }
+.home .home-rail.show { display: block; }
+.home .home-rail.in { opacity: 1; }
+
+/* The pro tile is the one place text shows at rest: who, and what. */
+.home .pro .obj { transform: translateY(-10%); }
+.home .pro .label { transform: none; }
+.home .pro .label .t { clip-path: none; font-size: clamp(13px, 1.15vw, 16px); }
+.home .pro .label .tags { opacity: 1; }
+
+.home .ctx { position: absolute; top: 0; right: 0; font-size: 11px; padding: 5px 8px; z-index: 3; opacity: 0; transition: opacity .2s; }
+.home .ctx::before, .home .ctx::after { content: ""; position: absolute; background: var(--line); }
+.home .ctx::before { left: 0; top: 0; width: 1px; height: 100%; transform: scaleY(0); transform-origin: top; transition: transform .2s ease-out; }
+.home .ctx::after { left: 0; bottom: 0; height: 1px; width: 100%; transform: scaleX(0); transform-origin: left; transition: transform .2s ease-out; }
+.home .cell.on .ctx { opacity: 1; }
+.home .cell.on .ctx::before { transform: scaleY(1); transition-delay: .1s; }
+.home .cell.on .ctx::after { transform: scaleX(1); transition-delay: .3s; }
+
+.home .portrait svg { width: 50%; height: 50%; overflow: visible; stroke: var(--fg); fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.home .glasses { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+.home .pro.on .glasses { transform: translateY(-3px); }
+.home .hand { transform-origin: 58px 44px; transform-box: view-box; }
+.home .itch.on .hand { animation: home-scratch .5s ease-in-out 1; }
+@keyframes home-scratch { 25% { transform: rotate(-9deg); } 50% { transform: rotate(5deg); } 75% { transform: rotate(-6deg); } }
+.home .paper { transform-origin: 60px 58px; transform-box: view-box; transition: transform .5s cubic-bezier(.22,1,.36,1); fill: var(--bg); }
+.home .about.on .paper { transform: rotate(-58deg); }
+.home .blink { animation: home-blink 5s infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes home-blink { 0%,96%,100% { transform: scaleY(1); } 98% { transform: scaleY(.1); } }
+
+/* ---- THE MARK ---- */
+.home .cell.mark { overflow: visible; z-index: 50; outline: none; }
+.home .cell.mark.open { z-index: 160; }
+.home .mark .goo { position: absolute; left: -50%; top: -50%; width: 200%; height: 200%; overflow: visible; pointer-events: none; }
+.home .mark .goo .b { fill: var(--red); }
+.home .mark .goo .stem { stroke: var(--red); stroke-linecap: round; }
+/* the one line wound round the ball, and its loose end into the grid */
+.home .mark .goo .thread, .home .mark .goo .wrap { fill: none; stroke: var(--line); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.home .mark .goo .wrap { transition: opacity .25s; }
+.home .mark.open .goo .wrap { opacity: 0; }
+.home .mark .face { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 17%; color: #fff;
+  pointer-events: none; will-change: transform; }
+.home .mark .line, .home .mark .hi { grid-area: 1 / 1; font-style: italic; font-weight: 300; line-height: 1.06; letter-spacing: -.015em; transition: opacity .25s; }
+.home .mark .line { font-size: clamp(20px, 2.15vw, 34px); }
+.home .mark .hi { font-size: clamp(24px, 2.6vw, 40px); opacity: 0; }
+.home .mark.open .line { opacity: 0; }
+.home .mark.open .hi { opacity: 1; transition-delay: .12s; }
+/* keeps the pointer "inside" while it crosses to the drops on the left */
+.home .mark .reach { position: absolute; top: 0; bottom: 0; right: 100%; width: 90px; display: none; }
+.home .mark.open .reach { display: block; }
+.home .mark .opt { position: absolute; left: 0; top: 0; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%;
+  display: grid; place-items: center; color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: -.02em;
+  opacity: 0; pointer-events: none; transition: opacity .15s; outline: none; }
+.home .mark .opt.shown { opacity: 1; pointer-events: auto; }
+.home .mark .opt:focus-visible { outline: 1px solid #fff; outline-offset: -5px; }
+.home .mark .opt svg { width: 19px; height: 19px; fill: currentColor; }
+.home .mark .opt .tip { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 12px;
+  font-weight: 400; color: var(--fg); background: var(--bg); padding: 2px 6px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.home .mark .opt:hover .tip, .home .mark .opt:focus-visible .tip { opacity: 1; }
+
+/* ---- load: a dot, then every tile sharpens and grows into place ---- */
+.home .loader { position: fixed; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
+  background: var(--dim); z-index: 500; animation: home-dot 1s ease-in-out infinite; transition: opacity .25s; }
+.home .loader.out { opacity: 0; }
+@keyframes home-dot { 50% { transform: scale(.4); opacity: .4; } }
+.home.loading .strings { opacity: 0; }
+.home .strings { transition: opacity .8s ease; }
+.home .cell:not(.in) .blur { filter: blur(14px); }
+.home .cell:not(.in) .obj { transform: scale(.6); }
+.home .pro:not(.in) .obj { transform: translateY(-10%) scale(.6); }
+.home .cell .blur { transition: filter .9s cubic-bezier(.22,1,.36,1); }
+.home .cell .obj { transition: transform .9s cubic-bezier(.22,1,.36,1); }
+.home .grid.hovering .cell .blur { transition-duration: .35s; }
+.home .cell.on .obj { transition-duration: .55s; }
+
+/* ---- intro ---- */
+.home .intro { position: fixed; inset: 0; z-index: 500; pointer-events: none; }
+.home .intro svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.home .intro path { fill: none; stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.home .intro .iball { fill: var(--red); }
+.home.intro-on .grid { visibility: hidden; }
+
+/* ---- open states ---- */
+.home .fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 300; pointer-events: none; overflow: visible; }
+.home .fx path { fill: none; stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.home .fx .sheet { fill: var(--bg); }
+.home .close { position: absolute; top: 0; right: 0; width: 64px; height: 64px; background: none; border: 0; border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); cursor: pointer; display: grid; place-items: center; color: var(--fg); z-index: 2; }
+.home .close svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1; fill: none; }
+
+.home .sheet-body { position: fixed; inset: var(--nav-h, 0px) 0 0 0; z-index: 310; display: none; opacity: 0; transition: opacity .35s; overflow: auto; overscroll-behavior: contain; }
+.home .sheet-body.show { display: block; }
+.home .sheet-body.in { opacity: 1; }
+.home .sheet-inner { min-height: 100%; display: grid; grid-template-columns: 1fr; align-items: center; padding: 96px 24px 0; gap: 32px; }
+@media (min-width: 850px) { .home .sheet-inner { grid-template-columns: 5fr 7fr; padding: 0 64px; } }
+.home .sheet-art { display: grid; place-items: center; }
+.home .sheet-art svg { width: min(70%, 340px); height: auto; overflow: visible; stroke: var(--fg); fill: none; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.home .sheet-text { max-width: 52ch; padding-bottom: 96px; }
+@media (min-width: 850px) { .home .sheet-text { padding-bottom: 0; } }
+.home .s-kicker { font-size: 12px; color: var(--dim); margin-bottom: 18px; }
+.home .s-lede { font-style: italic; font-weight: 300; font-size: clamp(26px, 3vw, 40px); line-height: 1.15; margin-bottom: 18px; }
+.home .s-text { font-size: 16px; line-height: 1.6; margin-bottom: 28px; }
+.home .s-facts { display: grid; gap: 12px; font-size: 14px; margin-bottom: 36px; }
+.home .s-facts dt { color: var(--dim); font-size: 11px; margin-bottom: 2px; }
+.home .s-links { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.home .s-links a { color: var(--fg); text-decoration: none; font-size: 13px; text-align: center; padding: 18px 4px; font-style: italic; font-weight: 300; }
+.home .s-links a + a { border-left: 1px solid var(--line); }
+.home .s-links a:hover, .home .s-links a:focus-visible { background: var(--obj); }
+
+.home .case { position: fixed; top: var(--nav-h, 0px); bottom: 0; z-index: 290; background: var(--bg); overflow: hidden; display: none; }
+.home .case.show { display: block; }
+.home .case-scroll { position: absolute; inset: 0; overflow: auto; opacity: 0; transition: opacity .35s; }
+.home .case.in .case-scroll { opacity: 1; }
+.home .case .close { right: 0; }
+
+/* ---- phone: no hover. Every caption and chip is shown at rest. ---- */
+@media (max-width: 649px) {
+  .home .obj, .home .cell.on .obj, .home .pro .obj { inset: 0 0 40% 0; transform: none; }
+  .home .label, .home .pro .label { transform: none; height: 40%; gap: 3px; padding: 0 8px; }
+  .home .label .kw { opacity: 1; transition: none; font-size: 8.5px; line-height: 1.3; }
+  .home .label .t, .home .pro .label .t { clip-path: none; transition: none; font-size: 15px; }
+  .home .label .tags { opacity: 1; transition: none; font-size: 10.5px; line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .home .ctx { opacity: 1; font-size: 10px; padding: 4px 7px; transition: none; }
+  .home .ctx::before, .home .ctx::after { transform: none; transition: none; }
+  .home .thumb, .home .thumb.contain { width: auto; height: 78%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home *, .home *::before, .home *::after { transition: none !important; animation: none !important; }
+}

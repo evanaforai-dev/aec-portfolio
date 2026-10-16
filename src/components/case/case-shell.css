@@ -1,0 +1,106 @@
+/*
+ * CASE STUDY SHELL. Same ground, lines and type as the home grid, so opening
+ * a project reads as one continuous move: the grid splits, the project opens
+ * in the gap, and this page is that gap. A strip of grid stays at each side
+ * (click it to go back) and the close square sits where the split panel had
+ * it. `.case-head` is shared with the home grid's split panel so the title
+ * block lands in exactly the same place on both.
+ */
+.case-shell, .home, .mini-ball {
+  --line: #dedede;
+  --dim: #8a8a8a;
+  --red: #ff3a1c;
+}
+.case-shell {
+  --bg: #ffffff;
+  --hairline: #dedede;
+  position: relative;
+  background: var(--bg);
+}
+.dark .case-shell, .dark .home, .dark .mini-ball { --line: #262626; --dim: #7a7a7a; }
+.dark .case-shell { --bg: #0b0b0b; --hairline: #262626; }
+body:has(.case-shell) { background: #ffffff; }
+.dark body:has(.case-shell) { background: #0b0b0b; }
+main:has(> .case-shell) { padding-top: 0 !important; }
+
+.case-head { max-width: 760px; margin: 0 auto; padding: 96px 32px 0; font-family: var(--font-inter), system-ui, sans-serif; color: var(--fg); }
+.case-head .c-ctx { display: inline-block; font-size: 11px; line-height: 1.4; padding: 5px 8px; border: 1px solid var(--line); margin-bottom: 20px; }
+.case-head .c-title { font-style: italic; font-weight: 300; font-size: clamp(32px, 4vw, 56px); line-height: 1.05; letter-spacing: -.01em; margin: 0 0 12px; }
+.case-head .c-tags { font-size: 13px; line-height: 1.5; color: var(--dim); margin: 0; }
+
+/* grid strip on the right, where the small ball lives */
+.case-strip { display: none; }
+@media (min-width: 650px) {
+  .case-shell { padding: 0 56px 0 112px; }
+  .case-strip { display: block; position: fixed; top: 0; bottom: 0; right: 0; width: 56px; z-index: 40; cursor: pointer; background: var(--bg);
+    border-left: 1px solid var(--line);
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--cell, 256px) - 1px), var(--line) calc(var(--cell, 256px) - 1px), var(--line) var(--cell, 256px)); }
+}
+
+/* THE RAIL: the three portraits as the grid's first column, at the home
+   grid's own tile size, then the grid carries on below them. */
+.case-rail { position: fixed; z-index: 41; background: var(--bg); color: var(--fg); font-family: var(--font-inter), system-ui, sans-serif; }
+.rail-tile { display: block; position: relative; padding: 0; margin: 0; border: 0; background: var(--bg); color: var(--dim);
+  cursor: pointer; font: inherit; text-align: center; transition: color .25s; }
+.rail-tile svg { position: absolute; left: 25%; top: 12%; width: 50%; height: 50%; overflow: visible; stroke: currentColor; fill: none;
+  stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+.rail-tile .paper { fill: var(--bg); }
+.rail-tile .blink { animation: rail-blink 5s infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes rail-blink { 0%,96%,100% { transform: scaleY(1); } 98% { transform: scaleY(.1); } }
+.rail-tile .rt { font-style: italic; font-weight: 300; }
+.rail-tile .rl { color: var(--dim); }
+.rail-tile.on, .rail-tile:hover, .rail-tile:focus-visible { color: var(--fg); }
+.rail-tile:hover svg, .rail-tile:focus-visible svg { transform: translateY(-4px); }
+.rail-tile:focus-visible { outline: 1px solid var(--fg); outline-offset: -6px; }
+@media (min-width: 650px) {
+  .case-shell { padding: 0 56px 0 var(--cell, 256px); }
+  .case-rail { top: 0; bottom: 0; left: 0; width: var(--cell, 256px); border-right: 1px solid var(--line); cursor: pointer;
+    overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--cell, 256px) - 1px), var(--line) calc(var(--cell, 256px) - 1px), var(--line) var(--cell, 256px)); }
+  .rail-tile { width: 100%; height: var(--cell, 256px); border-bottom: 1px solid var(--line); }
+  .rail-tile .rt, .rail-tile .rl { position: absolute; left: 12px; right: 12px; }
+  .rail-tile .rt { bottom: 16%; font-size: clamp(14px, 1.35vw, 19px); }
+  .rail-tile .rl { bottom: 8%; font-size: 11px; }
+}
+@media (max-width: 649px) {
+  .case-rail { position: sticky; top: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .rail-tile { height: 56px; display: grid; grid-auto-flow: column; place-items: center; place-content: center; gap: 6px; }
+  .rail-tile + .rail-tile { border-left: 1px solid var(--line); }
+  .rail-tile svg { position: static; width: 26px; height: 26px; }
+  .rail-tile .rt { font-size: 12px; }
+  .rail-tile .rl { display: none; }
+  .case-head { padding-top: 40px; }
+}
+
+/* THE SMALL BALL */
+.mini-ball { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.mini-ball .mb-goo { position: absolute; inset: 0; overflow: visible; }
+.mini-ball .mb-b { fill: var(--red, #ff3a1c); }
+.mini-ball .mb-stem { stroke: var(--red, #ff3a1c); stroke-linecap: round; }
+.mini-ball .mb-wrap { fill: none; stroke: #dedede; stroke-width: 1; stroke-linecap: round; }
+.dark .mini-ball .mb-wrap { stroke: #262626; }
+.mini-ball .mb-hit { position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; border: 0; padding: 0; background: transparent;
+  cursor: pointer; pointer-events: auto; }
+.mini-ball .mb-hit:focus-visible { outline: 1px solid var(--fg, #111); outline-offset: 3px; }
+.mini-ball .mb-zone { position: absolute; left: 0; top: 0; width: 158px; height: 158px; display: none; pointer-events: auto; }
+.mini-ball.open .mb-zone { display: block; }
+.mini-ball .mb-opt { position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  color: #fff; text-decoration: none; font: 500 12px/1 var(--font-inter), system-ui, sans-serif; letter-spacing: -.02em;
+  opacity: 0; pointer-events: none; transition: opacity .15s; }
+.mini-ball .mb-opt.shown { opacity: 1; pointer-events: auto; }
+.mini-ball .mb-opt svg { width: 16px; height: 16px; fill: currentColor; }
+.mini-ball .mb-opt:focus-visible { outline: 1px solid #fff; outline-offset: -4px; }
+.mini-ball .mb-tip { position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 11px;
+  font-weight: 400; color: var(--fg, #111); background: var(--bg, #fff); padding: 2px 6px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.mini-ball .mb-opt:hover .mb-tip, .mini-ball .mb-opt:focus-visible .mb-tip { opacity: 1; }
+
+/* the end of a case: back to the grid, and every way to reach you */
+.case-end { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 64px; }
+.case-end a, .case-end button { font: inherit; background: none; border: 0; color: var(--fg); text-decoration: none; font-size: 13px; text-align: center;
+  padding: 20px 4px; font-style: italic; font-weight: 300; cursor: pointer; font-family: var(--font-inter), system-ui, sans-serif; }
+.case-end > * + * { border-left: 1px solid var(--line) !important; }
+.case-end a:hover, .case-end button:hover, .case-end a:focus-visible, .case-end button:focus-visible { background: color-mix(in srgb, var(--line) 45%, transparent); }
+@media (max-width: 649px) { .case-end { grid-auto-flow: row; } .case-end > * + * { border-left: 0 !important; border-top: 1px solid var(--line); } }
+
+.case-head .c-kw { font-size: 10.5px; line-height: 1.5; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); margin: 10px 0 0; }
+@media (prefers-reduced-motion: reduce) { .rail-tile svg, .rail-tile .blink { transition: none; animation: none; } }

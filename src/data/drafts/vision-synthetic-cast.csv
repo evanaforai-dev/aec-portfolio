@@ -1,0 +1,13 @@
+learner,email,phone,employer,program,amount_inr,mode,status,invoice,due_date,owner
+Priya Nair,priya.nair@brightfold.example,+91 98••• ••42,Brightfold,backend engineering · c14,89000,upi,paid,AT-2411-0188,2026-02-04,R. Menon
+Arjun Bhatia,arjun.b@ternwoodlabs.example,+91 99••• ••17,Ternwood Labs,ai engineering · c3,124000,emi,partial,AT-2411-0192,2026-02-06,R. Menon
+Sneha Iyer,sneha.iyer@meridiancloud.example,+91 97••• ••08,Meridian Cloud,product management · c9,74500,card,paid,AT-2411-0195,2026-02-06,K. Dsouza
+Rahul Varma,r.varma@kalingaretail.example,+91 90••• ••61,Kalinga Retail,backend engineering · c14,89000,net banking,pending,AT-2411-0201,2026-02-11,K. Dsouza
+Aisha Qureshi,aisha.q@norlake.example,+91 98••• ••30,Norlake Systems,ai engineering · c3,124000,upi,paid,AT-2411-0203,2026-02-11,R. Menon
+Vikram Sethi,vikram@pinecastmedia.example,+91 96••• ••55,Pinecast Media,data engineering · c7,98000,bank transfer,overdue,AT-2411-0206,2026-01-28,S. Kulkarni
+Meera Joshi,meera.joshi@verdancehealth.example,+91 99••• ••73,Verdance Health,product management · c9,74500,upi,paid,AT-2411-0210,2026-02-13,S. Kulkarni
+Daniel Fernandes,d.fernandes@quillonfinance.example,+91 91••• ••26,Quillon Finance,backend engineering · c14,89000,emi,partial,AT-2411-0214,2026-02-14,K. Dsouza
+Ananya Rao,ananya.rao@ashwoodlog.example,+91 98••• ••94,Ashwood Logistics,data engineering · c7,98000,card,failed,AT-2411-0217,2026-02-17,R. Menon
+Imran Shaikh,imran.s@saffronbyte.example,+91 97••• ••12,Saffronbyte,ai engineering · c3,124000,upi,paid,AT-2411-0221,2026-02-18,S. Kulkarni
+Nikhil Menon,nikhil@marewoodenergy.example,+91 90••• ••47,Marewood Energy,product management · c9,74500,net banking,refunded,AT-2411-0224,2026-02-19,K. Dsouza
+Tara Kapoor,tara.kapoor@stellarpath.example,+91 99••• ••85,Stellarpath,backend engineering · c14,89000,upi,pending,AT-2411-0229,2026-02-21,R. Menon

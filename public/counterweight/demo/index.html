@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Counterweight</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23101114'/%3E%3Cpath d='M6 19h20' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='10' cy='14.5' r='3.5' fill='%23fff'/%3E%3Ccircle cx='22' cy='13' r='5' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Cpath d='M16 19v5' stroke='%23fff' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <script type="module" crossorigin src="./assets/index-CLMUOoUy.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/fixture-bpgg-_rk.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-DtRF5E8g.css">
+</head>
+<body>
+
+<!-- The design platform: its canvas, what it draws over it, and its own controls. -->
+<div class="stage" id="stage">
+  <div class="pins" id="pins"></div>
+  <svg class="lead" id="lead" aria-hidden="true"><line id="lead-l"/><circle id="lead-d" r="4"/></svg>
+  <div class="callout" id="callout" hidden></div>
+</div>
+
+<!-- Counterweight, mounted over it. -->
+<div id="ui"></div>
+
+<div class="dock glass" id="dock">
+  <button type="button" class="on" title="Select"><i class="ph ph-cursor"></i></button>
+  <button type="button" title="Orbit · right drag"><i class="ph ph-cube-focus"></i></button>
+  <button type="button" title="Pan · middle drag"><i class="ph ph-hand-grabbing"></i></button>
+  <button type="button" id="home" title="Fit all  F"><i class="ph ph-corners-out"></i></button>
+  <span class="div"></span>
+  <button type="button" title="Sun study (soon)" disabled><i class="ph ph-sun"></i></button>
+  <button type="button" title="Section (soon)" disabled><i class="ph ph-square-split-vertical"></i></button>
+  <span class="div"></span>
+  <button type="button" id="add-ifc" title="Add an IFC file as an option"><i class="ph ph-file-plus"></i></button>
+  <input type="file" id="ifc-file" accept=".ifc" hidden>
+  <button type="button" class="demo" id="demo-edit" title="Simulate an edit made in the design platform"><span class="dt">Demo</span>Edit model</button>
+</div>
+
+</body>
+</html>

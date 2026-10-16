@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Palette lives in CSS variables so light/dark is a straight inversion.
+ * The hairline-border, no-shadow visual language is identical in both modes.
+ */
+/*
+ * Global text-colour rule: text is the design-system black on light surfaces
+ * and pure white on dark surfaces, and nothing in between. --fg carries that
+ * (black in light theme, pure white in dark). --muted is kept as a token for
+ * secondary text but resolves to the SAME value as --fg, so labels, metadata,
+ * nav, captions, etc. are never a low-contrast gray, the hierarchy living in
+ * size / weight / spacing instead. The only colour exception is the magenta
+ * accent (#FC0FC0). Text over imagery is coloured per image (see ProjectCard).
+ */
+:root {
+  --bg: #fafafa;
+  --fg: #111111; /* the design-system black — do not introduce a new one */
+  --muted: var(--fg);
+  --hairline: rgba(17, 17, 17, 0.14);
+  /*
+   * The one colour on the site. It carries real information (project names in
+   * the index, the wordmark's initial), so it has to clear WCAG AA for body
+   * text against the ground it sits on. Electric magenta #FC0FC0 measures
+   * 3.4:1 on the off-white and fails; this is the same hue held one step
+   * deeper, at 4.7:1. On the dark surface #FC0FC0 already measures 5.6:1, so
+   * dark mode keeps the undiluted colour.
+   */
+  --accent: #d400a0;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #ffffff; /* pure white on the dark surface */
+  --muted: var(--fg);
+  --hairline: rgba(255, 255, 255, 0.16);
+  --accent: #fc0fc0;
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--hairline);
+}
+
+html {
+  /* Lenis drives scrolling; disable native smooth-scroll to avoid conflicts. */
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/*
+ * KEYBOARD FOCUS. The site draws no borders, shadows or radii, so the browser
+ * default ring is the one piece of chrome that would look borrowed. This is
+ * the same mark in the site's own language: the accent, square, held off the
+ * element so it reads as a registration rather than a box. Pointer users never
+ * see it (:focus-visible), so nothing about the mouse experience changes.
+ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Sharp corners only — no border-radius anywhere on the site. */
+* {
+  border-radius: 0 !important;
+}
+
+/*
+ * The single exception, and it is a drawing of an object rather than a piece
+ * of the interface: the shell a handset prototype runs inside. A phone with
+ * square corners is not a phone, and the rule above had quietly squared off
+ * the mockup.
+ *
+ * Two-axis percentages, so the corners keep their shape at any width. They
+ * are worked out from the screen, because the shell is built out from the
+ * screen: the glass is 393x852pt with a 55pt radius, giving 14% / 6.5%. The
+ * bezel is 2.4% of the shell's width on every side, which makes the shell
+ * 412.8 x 871.8 and its radius 55 + 9.9, giving 15.7% / 7.4%.
+ *
+ * Scoped to these two data attributes, so the sharp-corner rule still
+ * governs every other element on the site and no class can opt in by accident.
+ */
+[data-device="shell"] {
+  border-radius: 15.7% / 7.4% !important;
+}
+[data-device="screen"] {
+  border-radius: 14% / 6.5% !important;
+}
+
+/* No text shadow anywhere on the site — in any state. Legibility comes from the
+   light/dark colour rule, never from a shadow, glow, or outline. */
+* {
+  text-shadow: none !important;
+}
+
+/*
+ * TYPE SCALE
+ *
+ * Six roles, and nothing else on the site may invent a seventh. Before this
+ * there were between eight and fourteen distinct text styles on a single
+ * page, including an uppercase monospace body voice used by every side
+ * project and a 48px all-caps centred panel heading. Two typographic systems
+ * split by project type reads as two people, or as one person who did not
+ * decide.
+ *
+ * Sizes are fluid rather than stepped so a layout reflows instead of the type
+ * simply shrinking. Each clamp's lower bound is the size the role needs at
+ * 320px, not a proportional scale-down.
+ *
+ * The steps at 1440: 12 / 14 / 17 / 20 / 36 / 72.
+ */
+
+/* h1. The page title, and nothing else. */
+.t-display {
+  font-size: clamp(2.5rem, 5.6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  font-weight: 500;
+}
+
+/* The one large editorial statement a section is allowed: a thesis, a
+   reflection, a pull quote. */
+.t-lead {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+/* Section and item headings. One size, everywhere. */
+.t-head {
+  font-size: clamp(1.125rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
+  letter-spacing: -0.011em;
+  font-weight: 500;
+}
+
+/* Running prose. */
+.t-body {
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  letter-spacing: -0.003em;
+}
+
+/* Secondary prose: captions, callouts, the text under a step. */
+.t-note {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: -0.002em;
+}
+
+/* Metadata and eyebrows. Copy is lowercase in the data itself, so no
+   text-transform is applied anywhere. */
+.label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+/*
+ * MEASURE. Body copy ran at eleven different max-widths (42, 44, 46, 50 and
+ * 54rem plus four Tailwind steps). Two: the page measure, and the narrow one
+ * for prose sitting in a grid column.
+ */
+.measure {
+  max-width: 46rem;
+}
+.measure-narrow {
+  max-width: 34rem;
+}
+
+/*
+ * SECONDARY TEXT. --muted resolves to --fg, so the recede is opacity and the
+ * site gets exactly one step of it. It was 40%, 60%, 70% and 80% in different
+ * places; 40% at 11px was the only outright AA failure on the site.
+ */
+.t-dim {
+  opacity: 0.62;
+}
+
+/*
+ * Optical typography for the Malayalam initial "ഇ" that stands in for the
+ * Latin "e" in the wordmark. Malayalam glyphs render taller, heavier and on a
+ * different optical baseline than Inter's lowercase, so matching CSS font-size
+ * would look pasted-in. Instead the glyph is given a proper Malayalam font
+ * stack, sized down and re-weighted to match the perceived height/density of
+ * the lowercase v/a/n, nudged onto the Latin baseline, and given a hair of
+ * optical spacing before "vana". Colour only, no decorative element.
+ */
+.wordmark-initial {
+  color: var(--accent);
+  font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI",
+    "Kohinoor Malayalam", var(--font-inter), sans-serif;
+  display: inline-block;
+  font-size: 0.92em; /* a touch above x-height, toward cap height, to balance */
+  font-weight: 700;
+  /* Malayalam strokes render lighter than Inter at the same weight and thin out
+     at small sizes, so a hairline same-colour stroke evens the weight up. */
+  -webkit-text-stroke: 0.4px var(--accent);
+  line-height: 1;
+  /* The glyph's ink sits ~0.145em BELOW the alphabetic baseline, so lift it up
+     to rest its base on the Latin baseline. (Measured against Inter's "n".) */
+  transform: translateY(-0.145em);
+  margin-right: 0.08em;
+  vertical-align: baseline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
