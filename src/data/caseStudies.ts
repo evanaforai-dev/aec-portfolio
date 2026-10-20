@@ -447,7 +447,20 @@ export const caseStudies: Record<string, CaseStudy> = {
             why: "a typo in a comment costs nothing; a change to a payment status moves money and triggers access downstream. a spreadsheet treats both identically.",
             tradeoff: "every piece of friction is a slower edit for someone who knew exactly what they were doing.",
             result: "each column is either directly editable or behind an action button that names what is about to happen, and that menu is role-dependent. change logs sit alongside, so a row can be asked who last touched it.",
+            media: { type: "image", src: "/case/vision/action-menu.webp", width: 2000, height: 1136, alt: "a payment row's action menu open on re-sync, move enrollment, assign unit, re-register payment and delete, with delete set apart in red" },
+            fit: "contain",
           },
+        ],
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/vision/re-register.webp", width: 2000, height: 1137, alt: "the re-register payment dialog, step one of two: the lead and payment date fixed at the top, then agent, total sale value, payment type and cohort" },
+          { type: "image", src: "/case/vision/logs.webp", width: 2000, height: 1138, alt: "the logs panel over the payments table: every change by date, who made it, the field, and the old value struck through beside the new one" },
+        ],
+        captions: [
+          { label: "an action that says what it does", text: "re-registering a payment moves money, so it is a dialog in two steps: the details, then the date it should count for. the lead and the original payment date stay pinned at the top, where they cannot be edited by accident." },
+          { label: "who touched it, and what it was before", text: "every change to the table, searchable by lead and filterable by agent, field and date. the old value is struck through beside the new one, so a disputed row is answered in one look rather than a slack thread." },
         ],
       },
       {
