@@ -1,0 +1,902 @@
+{
+  "project": {
+    "id": "riverside",
+    "name": "Riverside Housing",
+    "brief": "48 homes · six options",
+    "file": "Riverside Housing · Options",
+    "stage": "Concept review",
+    "comments": [
+      {
+        "ck": "overlook",
+        "who": "MK",
+        "at": "Tue",
+        "t": "Is 9.4 m across the courtyard a problem if the facing rooms are kitchens rather than bedrooms?"
+      },
+      {
+        "ck": "waste",
+        "who": "ES",
+        "at": "Wed",
+        "t": "The service lane route needs the highways officer to agree to bin-day parking."
+      }
+    ]
+  },
+  "presentation": {
+    "A": {
+      "short": "Courtyard",
+      "color": "#0072b2"
+    },
+    "B": {
+      "short": "Terraces",
+      "color": "#e69f00"
+    },
+    "C": {
+      "short": "Twin bars",
+      "color": "#009e73"
+    },
+    "D": {
+      "short": "Tower",
+      "color": "#d55e00"
+    },
+    "E": {
+      "short": "Perimeter",
+      "color": "#cc79a7"
+    },
+    "F": {
+      "short": "Points",
+      "color": "#56b4e9"
+    }
+  },
+  "checks": [
+    {
+      "id": "overlook",
+      "icon": "eye-slash",
+      "name": "Overlook between homes",
+      "q": "How close do facing homes get to each other?",
+      "metric": "Closest facing facades",
+      "unit": "m",
+      "better": "higher",
+      "tol": 0.6,
+      "tolSrc": "Massing and plans read to about ±0.5 m. Rounded up.",
+      "scale": [0, 20],
+      "on": "Facade-to-facade separation",
+      "boundary": "Separation is geometry. Whether residents feel overlooked also depends on window placement, glazing, screening and how rooms are used."
+    },
+    {
+      "id": "cleaning",
+      "icon": "app-window",
+      "name": "Glass you can’t reach",
+      "q": "How much glazing can only be cleaned or replaced from outside?",
+      "metric": "Glazing not reachable from inside or a balcony",
+      "unit": "%",
+      "better": "lower",
+      "tol": 3,
+      "tolSrc": "How fixed panes are classified moves the share by about 3 points.",
+      "scale": [0, 60],
+      "on": "Share of glazing with no inside or balcony access",
+      "boundary": "This flags access, not cost. It does not know your maintenance contract, access equipment or cleaning frequency."
+    },
+    {
+      "id": "rain",
+      "icon": "cloud-rain",
+      "name": "Rain noise over bedrooms",
+      "q": "Are there roofs directly below bedroom windows?",
+      "metric": "Roof surfaces directly below habitable windows",
+      "unit": "",
+      "better": "lower",
+      "tol": 0.5,
+      "tolSrc": "Counts are whole surfaces, so one surface is a real difference.",
+      "scale": [0, 12],
+      "on": "Count of roof surfaces within 3 m below a habitable window",
+      "boundary": "A canopy directly below a window is a geometric condition. Whether rain is audible depends on roof build-up and room construction."
+    },
+    {
+      "id": "stepfree",
+      "icon": "wheelchair",
+      "name": "Step-free route home",
+      "q": "How far is the longest step-free route from the entrance to a front door?",
+      "metric": "Longest step-free route, entrance to front door",
+      "unit": "m",
+      "better": "lower",
+      "tol": 2,
+      "tolSrc": "Routes traced on plan read to about ±2 m.",
+      "scale": [0, 80],
+      "on": "Route length on plan, entrance to the furthest front door",
+      "boundary": "Route length is geometry. It does not show gradients, door weights or how the route feels to use."
+    },
+    {
+      "id": "waste",
+      "icon": "trash",
+      "name": "Bins & deliveries",
+      "q": "How far do bins travel to the kerb, and do they cross the entrance?",
+      "metric": "Bin store to collection kerb",
+      "unit": "m",
+      "better": "lower",
+      "tol": 0.6,
+      "tolSrc": "Massing and plans read to about ±0.5 m. Rounded up.",
+      "scale": [0, 24],
+      "on": "Distance from bin store to the collection kerb",
+      "boundary": "This measures the route, not collection practice. Local collection rules are not checked."
+    },
+    {
+      "id": "plant",
+      "icon": "engine",
+      "name": "Replacing big equipment",
+      "q": "Can large plant come out and go back in without demolition?",
+      "metric": "Clear service route for the largest plant item",
+      "unit": "m",
+      "better": "higher",
+      "tol": 0.1,
+      "tolSrc": "Door and corridor widths read to ±0.1 m.",
+      "scale": [0, 3],
+      "on": "Clear width of the plant replacement route",
+      "boundary": "Needs a plant schedule and a classified service route before anything can be said."
+    },
+    {
+      "id": "pooling",
+      "icon": "drop",
+      "name": "Water & debris pooling",
+      "q": "Are there flat surfaces where water or debris has nowhere to go?",
+      "metric": "Flat roof or terrace areas with no drain found",
+      "unit": "",
+      "better": "lower",
+      "tol": 0.5,
+      "tolSrc": "Counts are whole areas, so one area is a real difference.",
+      "scale": [0, 10],
+      "on": "Flat areas with no drain object",
+      "boundary": "A missing drain object may be unmodelled rather than absent. Treat this as a question for the model, not a defect."
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "A",
+      "name": "Courtyard",
+      "input": "bim",
+      "inputLabel": "BIM model",
+      "file": "courtyard_v7.ifc",
+      "detail": "2,184 elements · 48 homes · 7 levels",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "A.south-bar",
+          "category": "volume",
+          "name": "south bar",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -15, 0],
+            "max": [20, -9, 21]
+          }
+        },
+        {
+          "id": "A.north-bar",
+          "category": "volume",
+          "name": "north bar",
+          "geometry": {
+            "type": "box",
+            "min": [-20, 9, 0],
+            "max": [20, 15, 21]
+          }
+        },
+        {
+          "id": "A.west-wing",
+          "category": "volume",
+          "name": "west wing",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -9, 0],
+            "max": [-4.7, 9, 21]
+          }
+        },
+        {
+          "id": "A.east-wing",
+          "category": "volume",
+          "name": "east wing",
+          "geometry": {
+            "type": "box",
+            "min": [4.7, -9, 0],
+            "max": [20, 9, 21]
+          }
+        },
+        {
+          "id": "A.canopy",
+          "category": "ancillary",
+          "name": "entrance canopy",
+          "geometry": {
+            "type": "box",
+            "min": [-14, -17.5, 3.2],
+            "max": [-6, -15, 3.5]
+          }
+        },
+        {
+          "id": "A.lobby",
+          "category": "passage",
+          "name": "main lobby",
+          "geometry": {
+            "type": "box",
+            "min": [-1.5, -15, 0],
+            "max": [1.5, -9, 3]
+          }
+        },
+        {
+          "id": "A.refuse-store",
+          "category": "refuse-store",
+          "name": "refuse store",
+          "geometry": {
+            "type": "box",
+            "min": [-1.5, -9, 0],
+            "max": [1.5, -6, 2.6]
+          }
+        },
+        {
+          "id": "A.street-bay",
+          "category": "collection-point",
+          "name": "street collection bay",
+          "geometry": {
+            "type": "point",
+            "at": [5, -23.5, 0]
+          }
+        },
+        {
+          "id": "A.lane-bay",
+          "category": "collection-point",
+          "name": "service lane bay",
+          "geometry": {
+            "type": "point",
+            "at": [29, 13.9, 0]
+          }
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Terraces",
+      "input": "massing",
+      "inputLabel": "3D massing",
+      "file": "terraces_massing.3dm",
+      "detail": "12 volumes · no openings",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "B.west-lower",
+          "category": "volume",
+          "name": "west terrace",
+          "geometry": {
+            "type": "box",
+            "min": [-23.1, -15, 0],
+            "max": [-7.1, 15, 9]
+          }
+        },
+        {
+          "id": "B.west-middle",
+          "category": "volume",
+          "name": "west terrace, middle storeys",
+          "geometry": {
+            "type": "box",
+            "min": [-23.1, -5, 9],
+            "max": [-7.1, 15, 15]
+          }
+        },
+        {
+          "id": "B.west-upper",
+          "category": "volume",
+          "name": "west terrace, top storeys",
+          "geometry": {
+            "type": "box",
+            "min": [-23.1, 5, 15],
+            "max": [-7.1, 15, 21]
+          }
+        },
+        {
+          "id": "B.east-lower",
+          "category": "volume",
+          "name": "east terrace",
+          "geometry": {
+            "type": "box",
+            "min": [7.1, -15, 0],
+            "max": [23.1, 15, 9]
+          }
+        },
+        {
+          "id": "B.east-middle",
+          "category": "volume",
+          "name": "east terrace, middle storeys",
+          "geometry": {
+            "type": "box",
+            "min": [7.1, -5, 9],
+            "max": [23.1, 15, 15]
+          }
+        },
+        {
+          "id": "B.east-upper",
+          "category": "volume",
+          "name": "east terrace, top storeys",
+          "geometry": {
+            "type": "box",
+            "min": [7.1, 5, 15],
+            "max": [23.1, 15, 21]
+          }
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Twin bars",
+      "input": "plan",
+      "inputLabel": "2D plan",
+      "file": "twinbars_GA.pdf",
+      "detail": "2 sheets · scale 1:200 from title block",
+      "units": "m",
+      "scale": "Checked against the 7.2 m grid",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "C.south-bar",
+          "category": "volume",
+          "name": "south bar",
+          "geometry": {
+            "type": "box",
+            "min": [-25, -15.5, 0],
+            "max": [25, -5.5, 18]
+          }
+        },
+        {
+          "id": "C.north-bar",
+          "category": "volume",
+          "name": "north bar",
+          "geometry": {
+            "type": "box",
+            "min": [-25, 5.5, 0],
+            "max": [25, 15.5, 18]
+          }
+        },
+        {
+          "id": "C.refuse-store",
+          "category": "refuse-store",
+          "name": "bin store",
+          "geometry": {
+            "type": "box",
+            "min": [26, -12, 0],
+            "max": [31, -9.5, 2.6]
+          }
+        },
+        {
+          "id": "C.service-gate",
+          "category": "collection-point",
+          "name": "service gate",
+          "geometry": {
+            "type": "point",
+            "at": [34, -15, 0]
+          }
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Tower & podium",
+      "input": "render",
+      "inputLabel": "Render",
+      "file": "tower_dusk.png",
+      "detail": "3840 × 2160 · 2 scale anchors",
+      "units": "px",
+      "scale": "Two scale anchors in the image",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "D.podium",
+          "category": "volume",
+          "name": "podium",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -18, 0],
+            "max": [20, 18, 7]
+          }
+        },
+        {
+          "id": "D.tower",
+          "category": "volume",
+          "name": "tower",
+          "geometry": {
+            "type": "box",
+            "min": [-9, -6, 7],
+            "max": [9, 10, 40]
+          }
+        },
+        {
+          "id": "D.canopy",
+          "category": "ancillary",
+          "name": "entrance canopy",
+          "geometry": {
+            "type": "box",
+            "min": [-5, -21, 7],
+            "max": [5, -18, 7.5]
+          }
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "name": "Perimeter block",
+      "input": "bim",
+      "inputLabel": "BIM model",
+      "file": "perimeter_v3.ifc",
+      "detail": "1,620 elements · 40 homes · 5 levels",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "E.south-wing",
+          "category": "volume",
+          "name": "south wing",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -18, 0],
+            "max": [20, -10, 15]
+          }
+        },
+        {
+          "id": "E.west-wing",
+          "category": "volume",
+          "name": "west wing",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -10, 0],
+            "max": [-6, 16, 15]
+          }
+        },
+        {
+          "id": "E.east-wing",
+          "category": "volume",
+          "name": "east wing",
+          "geometry": {
+            "type": "box",
+            "min": [6, -10, 0],
+            "max": [20, 16, 15]
+          }
+        },
+        {
+          "id": "E.refuse-store",
+          "category": "refuse-store",
+          "name": "bin store",
+          "geometry": {
+            "type": "box",
+            "min": [12, -23, 0],
+            "max": [18, -19, 3]
+          }
+        },
+        {
+          "id": "E.car-park-gate",
+          "category": "collection-point",
+          "name": "car park gate",
+          "geometry": {
+            "type": "point",
+            "at": [26, -29, 0]
+          }
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "name": "Point blocks",
+      "input": "massing",
+      "inputLabel": "3D massing",
+      "file": "points_massing.3dm",
+      "detail": "3 volumes · no openings",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "F.west",
+          "category": "volume",
+          "name": "west point block",
+          "geometry": {
+            "type": "box",
+            "min": [-19, -16, 0],
+            "max": [-9, -6, 30]
+          }
+        },
+        {
+          "id": "F.east",
+          "category": "volume",
+          "name": "east point block",
+          "geometry": {
+            "type": "box",
+            "min": [1.2, -16, 0],
+            "max": [11.2, -6, 24]
+          }
+        },
+        {
+          "id": "F.north",
+          "category": "volume",
+          "name": "north point block",
+          "geometry": {
+            "type": "box",
+            "min": [-8, 6, 0],
+            "max": [2, 16, 36]
+          }
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "check": "overlook",
+      "alternative": "D",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 10,
+        "hi": 18,
+        "text": "Tower to the neighbouring block.",
+        "src": "Storey height anchor (3.0 m assumed) and entrance door"
+      },
+      "elements": ["D.overlook"],
+      "excluded": "The image gives a 10–18 m range. Too wide to rank against the measured schemes."
+    },
+    {
+      "check": "cleaning",
+      "alternative": "A",
+      "evidence": {
+        "kind": "measured",
+        "v": 38,
+        "text": "119 of 312 windows are fixed panes above level 1 with no balcony in front.",
+        "src": "IfcWindow operation type · IfcSlab (balcony)"
+      },
+      "elements": ["A.cleaning"]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "B",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 24,
+        "hi": 42,
+        "text": "Terrace step-backs give outside access to 7 of 12 volumes.",
+        "src": "Mesh setbacks"
+      },
+      "elements": ["B.cleaning"]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Window heights and opening types are not on the plan.",
+        "needs": "Elevations or a window schedule"
+      },
+      "elements": [],
+      "excluded": "The plan shows window positions, not heights or opening types."
+    },
+    {
+      "check": "cleaning",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Full-height glazing on the tower’s upper floors. No balconies visible.",
+        "src": "Image region, upper tower"
+      },
+      "elements": ["D.cleaning"],
+      "excluded": "Visual only. No share can be read from one view."
+    },
+    {
+      "check": "cleaning",
+      "alternative": "E",
+      "evidence": {
+        "kind": "measured",
+        "v": 22,
+        "text": "52 of 236 windows are fixed panes with no balcony in front, mostly on the street side.",
+        "src": "IfcWindow operation type · IfcSlab (balcony)"
+      },
+      "elements": ["E.cleaning"]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "F",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 30,
+        "hi": 48,
+        "text": "Slender blocks with no setbacks. Most upper glazing faces open air.",
+        "src": "Mesh faces"
+      },
+      "elements": ["F.cleaning"]
+    },
+    {
+      "check": "rain",
+      "alternative": "A",
+      "evidence": {
+        "kind": "measured",
+        "v": 2,
+        "text": "Metal entrance canopy below two first-floor bedrooms, east wing.",
+        "src": "IfcRoof · IfcSpace (bedroom) · IfcWindow"
+      },
+      "elements": ["A.rain"]
+    },
+    {
+      "check": "rain",
+      "alternative": "B",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 6,
+        "hi": 11,
+        "text": "9 terrace roofs sit directly below upper volumes.",
+        "src": "Mesh adjacency"
+      },
+      "elements": ["B.rain"]
+    },
+    {
+      "check": "rain",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No sections or levels to relate roofs to windows.",
+        "needs": "A section or a 3D model"
+      },
+      "elements": [],
+      "excluded": "The plan has no vertical information."
+    },
+    {
+      "check": "rain",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Glazed canopy visible over the entrance, below first-floor windows.",
+        "src": "Image region, podium entrance"
+      },
+      "elements": ["D.rain"],
+      "excluded": "Visual only."
+    },
+    {
+      "check": "rain",
+      "alternative": "E",
+      "evidence": {
+        "kind": "measured",
+        "v": 0,
+        "text": "No roofs or canopies sit below habitable windows.",
+        "src": "IfcRoof · IfcSpace (bedroom) · IfcWindow"
+      },
+      "elements": []
+    },
+    {
+      "check": "rain",
+      "alternative": "F",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 2,
+        "hi": 5,
+        "text": "The lower block roofs sit below parts of the taller blocks.",
+        "src": "Mesh adjacency"
+      },
+      "elements": []
+    },
+    {
+      "check": "stepfree",
+      "alternative": "A",
+      "evidence": {
+        "kind": "measured",
+        "v": 64,
+        "text": "All 48 homes reach a lift without steps.",
+        "src": "IfcDoor · IfcStair · IfcTransportElement × 2"
+      },
+      "elements": ["A.stepfree"]
+    },
+    {
+      "check": "stepfree",
+      "alternative": "B",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No circulation in the massing.",
+        "needs": "Floor plans or a model with cores"
+      },
+      "elements": [],
+      "excluded": "Massing has no entrances, cores or internal levels."
+    },
+    {
+      "check": "stepfree",
+      "alternative": "C",
+      "evidence": {
+        "kind": "measured",
+        "v": 52,
+        "text": "Ground floor plus typical floor, assuming the cores stack.",
+        "src": "Plan geometry · door and stair symbols"
+      },
+      "elements": ["C.stepfree"]
+    },
+    {
+      "check": "stepfree",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Ground floor not visible.",
+        "needs": "A ground floor plan"
+      },
+      "elements": [],
+      "excluded": "The ground floor is not visible."
+    },
+    {
+      "check": "stepfree",
+      "alternative": "E",
+      "evidence": {
+        "kind": "measured",
+        "v": 58,
+        "text": "Two cores. The north-west corner homes are furthest from a lift.",
+        "src": "IfcDoor · IfcStair · IfcTransportElement × 2"
+      },
+      "elements": ["E.stepfree"]
+    },
+    {
+      "check": "stepfree",
+      "alternative": "F",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No circulation in the massing.",
+        "needs": "Floor plans or a model with cores"
+      },
+      "elements": [],
+      "excluded": "Massing has no entrances, cores or internal levels."
+    },
+    {
+      "check": "waste",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No ground-floor layout visible.",
+        "needs": "A ground floor plan"
+      },
+      "elements": [],
+      "excluded": "No ground-floor layout visible."
+    },
+    {
+      "check": "plant",
+      "alternative": "A",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Plant room found on level 7 (42 m²). No equipment objects or service doors classified.",
+        "needs": "Plant schedule · classified service doors"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "B",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No plant spaces in the massing.",
+        "needs": "A model with plant spaces"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No plant room on the sheets supplied.",
+        "needs": "Roof or plant level plan"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Not visible.",
+        "needs": "Any drawing of plant areas"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "E",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Plant room modelled as a space only. No equipment or service doors.",
+        "needs": "Plant schedule · classified service doors"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "F",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No plant spaces in the massing.",
+        "needs": "A model with plant spaces"
+      },
+      "elements": []
+    },
+    {
+      "check": "pooling",
+      "alternative": "A",
+      "evidence": {
+        "kind": "measured",
+        "v": 2,
+        "text": "No roof drain objects on 2 flat areas: the north-east roof and the entrance canopy.",
+        "src": "IfcSlab (roof) · IfcFlowTerminal"
+      },
+      "elements": ["A.pooling"]
+    },
+    {
+      "check": "pooling",
+      "alternative": "B",
+      "evidence": {
+        "kind": "observed",
+        "text": "9 flat terrace surfaces. Drainage not represented.",
+        "src": "Mesh normals"
+      },
+      "elements": [],
+      "excluded": "Drainage is not represented in massing."
+    },
+    {
+      "check": "pooling",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No roof plan supplied.",
+        "needs": "A roof plan"
+      },
+      "elements": [],
+      "excluded": "No roof plan supplied."
+    },
+    {
+      "check": "pooling",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Planted podium roof. Edges are not visible.",
+        "src": "Image region, podium"
+      },
+      "elements": [],
+      "excluded": "Roof edges are not visible."
+    },
+    {
+      "check": "pooling",
+      "alternative": "E",
+      "evidence": {
+        "kind": "measured",
+        "v": 1,
+        "text": "No drain object on the bin store roof.",
+        "src": "IfcSlab (roof) · IfcFlowTerminal"
+      },
+      "elements": ["E.pooling"]
+    },
+    {
+      "check": "pooling",
+      "alternative": "F",
+      "evidence": {
+        "kind": "observed",
+        "text": "3 flat roofs. Drainage not represented.",
+        "src": "Mesh normals"
+      },
+      "elements": [],
+      "excluded": "Drainage is not represented in massing."
+    }
+  ],
+  "edit": {
+    "alternative": "A",
+    "on": "Courtyard bin store moved to the service lane",
+    "off": "Courtyard bin store moved back to the lobby",
+    "geometry": [
+      {
+        "id": "A.refuse-store",
+        "category": "refuse-store",
+        "name": "refuse store",
+        "geometry": {
+          "type": "box",
+          "min": [22.5, 8, 0],
+          "max": [25.5, 11, 2.6]
+        }
+      }
+    ]
+  }
+}

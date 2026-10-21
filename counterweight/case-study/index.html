@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>counterweight · case study</title>
+<meta name="description" content="A review companion for architects that sits beside the model and only says what each drawing can support.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..600;1,300&family=JetBrains+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="case.css?v=6">
+</head>
+<body>
+
+<header class="case-head">
+  <span class="c-ctx">self-initiated</span>
+  <h1 class="c-title">counterweight</h1>
+  <p class="c-tags">a second pair of eyes for design reviews. it sits beside the model an office already draws in, compares early options on the everyday things that fail after handover, and only says what each drawing can support.</p>
+  <p class="c-kw">architecture tooling · product design · design engineering · evidence design · ai trust</p>
+</header>
+
+<div class="wrap hero">
+  <figure>
+    <div class="frame player">
+      <video id="film" src="media/counterweight-film.mp4" poster="shots/hero.jpg" muted playsinline loop preload="metadata"></video>
+      <button class="play" id="play" aria-label="Play the 37 second film"><span class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="cap">play the film · 37 s</span></button>
+    </div>
+    <figcaption class="label t-dim">six options for one housing brief, seven everyday checks, one sync from the design platform. every frame is the working prototype.</figcaption>
+  </figure>
+
+  <p class="t-lead measure" style="margin-top:64px">early design reviews compare what is easy to see. counterweight lays out what is easy to miss, and says plainly when a drawing cannot answer.</p>
+
+  <div class="cells three does" style="margin-top:48px">
+    <div><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><rect class="s" x="16" y="18" width="62" height="64"/><rect class="s" x="122" y="18" width="62" height="64"/><line class="a" x1="78" y1="54" x2="122" y2="54"/><line class="a" x1="78" y1="48" x2="78" y2="60"/><line class="a" x1="122" y1="48" x2="122" y2="60"/><text x="100" y="44" text-anchor="middle">9.4 m</text></svg><b class="t-note">points at the model</b><p class="t-note t-dim">every number is drawn back where it was measured: the facades, the route, the roof.</p></div>
+    <div><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><circle class="f" cx="25" cy="40" r="5"/><line class="k" x1="62" y1="40" x2="88" y2="40"/><line class="k" x1="62" y1="34" x2="62" y2="46"/><line class="k" x1="88" y1="34" x2="88" y2="46"/><rect class="k" x="112" y="28" width="30" height="24"/><polyline class="k" points="112,52 122,40 130,47 135,42 142,50"/><circle class="d" cx="175" cy="40" r="11"/><text class="t" x="25" y="80" text-anchor="middle">measured</text><text class="t" x="75" y="80" text-anchor="middle">range</text><text class="t" x="127" y="80" text-anchor="middle">seen</text><text class="t" x="175" y="80" text-anchor="middle">missing</text></svg><b class="t-note">says what each drawing can support</b><p class="t-note t-dim">measured, estimated, seen in an image, or not in this file. only numbers are ranked.</p></div>
+    <div><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><ellipse class="fog" cx="100" cy="50" rx="20" ry="14"/><ellipse class="h" cx="100" cy="50" rx="44" ry="31"/><ellipse class="h" cx="100" cy="50" rx="68" ry="44"/><line class="h" x1="100" y1="50" x2="100" y2="4"/><line class="h" x1="100" y1="50" x2="164" y2="27"/><line class="h" x1="100" y1="50" x2="164" y2="73"/><line class="h" x1="100" y1="50" x2="100" y2="96"/><line class="h" x1="100" y1="50" x2="36" y2="73"/><line class="h" x1="100" y1="50" x2="36" y2="27"/><circle class="af" cx="141" cy="36" r="4"/><circle class="f" cx="100" cy="80" r="4"/><circle class="k" cx="94" cy="52" r="4" style="fill:var(--bg)"/></svg><b class="t-note">never picks a winner</b><p class="t-note t-dim">it shows who leads each check and by how much, and leaves the trade-offs to the architect.</p></div>
+  </div>
+
+  <dl class="meta">
+    <div><dt class="label t-dim">role</dt><dd>product, research, interaction design and the engineering of the rules, readers and ifc adapter</dd></div>
+    <div><dt class="label t-dim">team</dt><dd>solo, built with claude</dd></div>
+    <div><dt class="label t-dim">context</dt><dd>self-initiated concept, desktop widget</dd></div>
+    <div><dt class="label t-dim">year</dt><dd>2026</dd></div>
+  </dl>
+</div>
+
+<!-- the problem -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">decided in the first review, found a year after handover</h2>
+  <p class="t-lead measure">the costly problems in a building are rarely the dramatic ones. they are the glass nobody can reach to clean, the bin route through the lobby, the canopy that drums under a bedroom window.</p>
+  <div class="g12" style="margin-top:48px">
+    <p class="label t-dim c3">take the bins</p>
+    <div class="c9 measure">
+      <p class="t-body">at an early review, a team compares six options on daylight, views, area and how each one looks in a render. the refuse store goes wherever it fits. nobody draws the route from the store to the kerb, because nothing in the review asks for it. a year after handover, the caretaker wheels every bin through the entrance lobby, and moving the store now means moving the building.</p>
+      <p class="t-note t-dim">a composite, not a real project: it is the pattern post-occupancy studies keep finding.<sup><a href="#r3">3</a></sup></p>
+    </div>
+  </div>
+  <div class="cells three" style="margin-top:64px">
+    <div><span class="big">~60%</span><p class="t-note">of 18,704 latent defects in 74 buildings could have been prevented by better design, against 33% by better workmanship.<sup><a href="#r1">1</a></sup></p></div>
+    <div><span class="big">6.9% + 7.4%</span><p class="t-note">of contract value lost to design errors, in direct and then indirect costs, across 139 projects.<sup><a href="#r2">2</a></sup></p></div>
+    <div><span class="big">same faults</span><p class="t-note">recur from building to building, because teams move on and feedback rarely reaches designers.<sup><a href="#r3">3</a></sup></p></div>
+  </div>
+  <div class="g12" style="margin-top:64px">
+    <h3 class="label t-dim c3">and ai is arriving</h3>
+    <div class="c9">
+      <ul class="metrics">
+        <li><span>uk practices using ai</span><span>41% in 2024, 59% in 2025<sup><a href="#r4">4</a></sup></span></li>
+        <li><span>generated images</span><span>systematically break projective geometry<sup><a href="#r5">5</a></sup></span></li>
+        <li><span>ai explanations</span><span>raise acceptance whether or not the ai is right<sup><a href="#r6">6</a></sup></span></li>
+        <li><span>llm compliance checkers</span><span>give different answers to the same question<sup><a href="#r10">10</a></sup></span></li>
+      </ul>
+      <p class="t-body measure" style="margin-top:28px">early options now arrive as anything from a bim model to an ai render, and ai is entering practice faster than anyone can check it. so the question became:</p>
+    </div>
+  </div>
+  <p class="t-lead measure" style="margin-top:64px">how do you compare six options honestly when one is a bim model, two are massings, one is a scanned plan and two are ai renders?</p>
+</div></section>
+
+<!-- what architects need -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">what architects need from a tool</h2>
+  <p class="t-body measure" style="margin-bottom:40px">architects already have more software than they want, and most of it asks them to change how they work. a new tool earns a place only if it fits how a design review actually runs. every screen was checked against these six needs.</p>
+  <div class="rows needs">
+    <div class="g12"><div class="c3"><p class="t-head">stay in the model</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><rect class="k" x="2" y="4" width="196" height="92"/><line class="h" x1="2" y1="16" x2="198" y2="16"/><circle class="f" cx="10" cy="10" r="1.6"/><circle class="f" cx="16" cy="10" r="1.6"/><circle class="f" cx="22" cy="10" r="1.6"/><rect class="s" x="16" y="40" width="34" height="40"/><rect class="s" x="58" y="30" width="26" height="50"/><rect class="s" x="92" y="52" width="22" height="28"/><rect class="k" x="134" y="22" width="58" height="68" style="fill:var(--bg)"/><line class="h" x1="140" y1="34" x2="184" y2="34"/><line class="h" x1="140" y1="44" x2="176" y2="44"/><line class="a" x1="140" y1="56" x2="168" y2="56"/><line class="h" x1="140" y1="68" x2="180" y2="68"/><line class="h" x1="140" y1="78" x2="172" y2="78"/></svg></div><div class="c9 measure"><p class="t-body">nobody re-models a scheme to ask one question about it, and an export ritual is skipped the week it matters.</p><p class="t-body so"><span class="label t-dim">so</span> counterweight is a widget beside rhino, revit or whatever the office draws in, and reads what is already there. an ifc file dropped on it becomes another option.</p></div></div>
+    <div class="g12"><div class="c3"><p class="t-head">meet the stage you are at</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><polygon class="s" points="8,44 26,34 44,44 44,70 26,80 8,70"/><polyline class="k" points="8,44 26,54 44,44"/><line class="k" x1="26" y1="54" x2="26" y2="80"/><path class="k" d="M58 70 C62 50 70 42 76 44 S86 62 92 40"/><path class="k" d="M58 76 L94 74"/><rect class="k" x="108" y="36" width="38" height="40"/><line class="k" x1="108" y1="56" x2="130" y2="56"/><line class="k" x1="130" y1="36" x2="130" y2="66"/><rect class="k" x="158" y="36" width="38" height="40"/><circle class="k" cx="186" cy="46" r="4"/><polyline class="k" points="158,76 170,58 178,68 184,62 196,74"/><text class="t" x="26" y="96" text-anchor="middle">massing</text><text class="t" x="76" y="96" text-anchor="middle">sketch</text><text class="t" x="127" y="96" text-anchor="middle">plan</text><text class="t" x="177" y="96" text-anchor="middle">render</text></svg></div><div class="c9 measure"><p class="t-body">when the big decisions are made, the options are massings, sketches, a scanned plan and a competition render. a tool that needs a full bim model arrives after the decisions.</p><p class="t-body so"><span class="label t-dim">so</span> it takes every kind of input and says what each one can answer, rather than refusing the ones that are not finished.</p></div></div>
+    <div class="g12"><div class="c3"><p class="t-head">hold up in the room</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><rect class="s" x="10" y="30" width="56" height="60"/><circle class="af" cx="66" cy="50" r="3.5"/><line class="a" x1="66" y1="50" x2="96" y2="30"/><rect class="k" x="96" y="12" width="96" height="58" style="fill:var(--bg)"/><text x="106" y="30">9.4 m</text><text class="t" x="106" y="46">± 0.6 m</text><text class="t" x="106" y="61">measured</text></svg></div><div class="c9 measure"><p class="t-body">a review is an argument between architect, client, planner and consultants. a finding someone cannot challenge does not survive it.</p><p class="t-body so"><span class="label t-dim">so</span> every number points at a place in the model and carries its tolerance and its source. nothing has to be taken on trust.</p></div></div>
+    <div class="g12"><div class="c3"><p class="t-head">leave the judgement alone</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><line class="h" x1="100" y1="10" x2="100" y2="90"/><text class="t" x="4" y="32">overlook</text><line class="k" x1="100" y1="28" x2="150" y2="28"/><circle class="f" cx="150" cy="28" r="4"/><text x="160" y="32">A</text><text class="t" x="4" y="58">bins</text><line class="k" x1="100" y1="54" x2="62" y2="54"/><circle class="f" cx="62" cy="54" r="4"/><text x="48" y="58">B</text><text class="t" x="4" y="84">total</text><line class="d" x1="100" y1="80" x2="180" y2="80"/><line class="k" x1="134" y1="72" x2="146" y2="88"/><line class="k" x1="146" y1="72" x2="134" y2="88"/></svg></div><div class="c9 measure"><p class="t-body">trading overlook against daylight, or a longer bin route against a better courtyard, is the architect's job, not the software's.</p><p class="t-body so"><span class="label t-dim">so</span> it shows who leads each check and by how much. there is no total and no winner.</p></div></div>
+    <div class="g12"><div class="c3"><p class="t-head">speak practice</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><rect class="k" x="10" y="8" width="180" height="62"/><line class="k" x1="80" y1="8" x2="80" y2="70"/><line class="k" x1="120" y1="8" x2="120" y2="70"/><text class="t" x="45" y="42" text-anchor="middle">flats</text><text class="t" x="100" y="32" text-anchor="middle">lobby</text><text class="t" x="155" y="42" text-anchor="middle">bin store</text><polyline class="a" points="140,52 100,52 100,90" stroke-dasharray="4 3"/><line class="k" x1="10" y1="92" x2="190" y2="92"/><text class="t" x="132" y="88">kerb</text></svg></div><div class="c9 measure"><p class="t-body">facades, routes, the lobby, the kerb. not risk scores, and not sentences that claim more than a drawing shows.</p><p class="t-body so"><span class="label t-dim">so</span> rooms are found by the names offices already give them, and every sentence the tool writes describes a condition, never an experience.</p></div></div>
+    <div class="g12"><div class="c3"><p class="t-head">end in a drawing request</p><svg class="mini" viewBox="0 0 200 100" aria-hidden="true"><rect class="s" x="20" y="10" width="54" height="74"/><line class="h" x1="28" y1="24" x2="64" y2="24"/><line class="h" x1="28" y1="34" x2="58" y2="34"/><polyline class="d" points="104,10 146,10 158,22 158,84 104,84 104,10"/><polyline class="d" points="146,10 146,22 158,22"/><line class="a" x1="131" y1="38" x2="131" y2="56"/><line class="a" x1="122" y1="47" x2="140" y2="47"/><text class="t" x="131" y="98" text-anchor="middle">ground-floor plan · +2 checks</text></svg></div><div class="c9 measure"><p class="t-body">when something cannot be answered yet, the useful output is what to ask the team for next.</p><p class="t-body so"><span class="label t-dim">so</span> gaps become requests: "a ground-floor plan for stepped block would answer two more checks."</p></div></div>
+  </div>
+  <p class="t-lead measure" style="margin-top:96px">it is not a compliance checker, not generative design and not a replacement for the review. it is the second pair of eyes in it.</p>
+  <p class="t-note t-dim measure" style="margin-top:24px">these needs come from published research on post-occupancy feedback and ai trust, and from informal conversations with architects. none were recorded, so no one is quoted; recorded sessions are the first item under what's next.</p>
+</div></section>
+
+<!-- try it -->
+<section class="band" id="try"><div class="wrap">
+  <h2 class="label t-dim">try it</h2>
+  <p class="t-lead measure">pick a task. this is the working prototype, not a recording.</p>
+  <div class="tasks" role="tablist" aria-label="Tasks to try">
+    <button role="tab" aria-selected="true" data-q="?check=overlook" data-hint="the overlook check is open. press show in model, and the camera flies to the two facades it measured."><span class="n">01</span>see where a number comes from</button>
+    <button role="tab" aria-selected="false" data-q="?check=waste" data-hint="press edit model in the dock to move the bin store, then press sync. the route is measured again and the check is marked as changed."><span class="n">02</span>move the bin store, then sync</button>
+    <button role="tab" aria-selected="false" data-q="?ifc&amp;check=waste" data-hint="garden court was read from an ifc file and added as option g. drop your own .ifc file on the canvas to add another."><span class="n">03</span>add an ifc file</button>
+    <button role="tab" aria-selected="false" data-q="?project=mill&amp;tab=evidence" data-hint="mill yard mixes a bim model, plans and ai renders. renders show as crops, never numbers, and the evidence tab says which drawing to ask for next."><span class="n">04</span>compare mixed inputs</button>
+    <button role="tab" aria-selected="false" data-q="?syncfail&amp;stale" data-hint="the model has changed since the last review. press sync: it fails on purpose, and the last good comparison stays on screen."><span class="n">05</span>see a sync fail safely</button>
+  </div>
+  <div class="frame live" id="proto" data-src="../demo/?check=overlook" aria-label="The Counterweight prototype"></div>
+  <div class="hint">
+    <p class="t-body measure" id="hint">the overlook check is open. press show in model, and the camera flies to the two facades it measured.</p>
+    <a class="t-note" id="full" href="../demo/?check=overlook" target="_blank" rel="noopener">open full screen ↗</a>
+  </div>
+  <p class="t-note t-dim measure" style="margin-top:16px">the canvas stands in for the design platform. overlook and the bin route are measured live from the geometry; the other checks use recorded, illustrative evidence.</p>
+</div></section>
+
+<!-- the turn -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">the tool i built and threw away</h2>
+  <div class="rows">
+    <div class="g12"><p class="label t-dim c3">first direction</p><p class="t-body measure c9">a ledger that put a price on everything: money, disruption, people and risk for every move, payback periods, a composite score and a recommended fix on every finding.</p></div>
+    <div class="g12"><p class="label t-dim c3">what happened</p><p class="t-body measure c9">it looked rigorous and was not. where evidence was missing, it quietly turned the gap into a number, and a render and a bim model fed the same score. no architect could have defended it to a client, and none should have.</p></div>
+    <div class="g12"><p class="label t-dim c3">what changed</p><p class="t-body measure c9">every value is now marked by what kind of evidence it is. ranges stay ranges, images never become measurements, there is no winner and no invented cost. if nothing can answer a check, it stays open and says what would.</p></div>
+  </div>
+  <p class="t-lead measure" style="margin-top:96px">the honest version is smaller. it is also the only one an architect could defend in a room.</p>
+</div></section>
+
+<!-- evidence model -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">four kinds of evidence</h2>
+  <p class="t-body measure" style="margin-bottom:40px">a typical ai checker takes any file and returns an answer. counterweight first marks each input by what kind of evidence it actually is. only numbers can be ranked, and only against a tolerance.</p>
+  <div class="cells four">
+    <div><b class="t-note">measured</b><p class="t-note">read from geometry the input contains. one number.</p><p class="t-note mono t-dim">9.4 m</p></div>
+    <div><b class="t-note">estimated</b><p class="t-note">a range from stated assumptions, such as a scale bar drawn by hand.</p><p class="t-note mono t-dim">11.3–12.8 m</p></div>
+    <div><b class="t-note">observed</b><p class="t-note">seen in an image. shown with the crop it came from, never turned into a number.</p><p class="t-note mono t-dim">full-height glazing</p></div>
+    <div><b class="t-note">not in input</b><p class="t-note">the file cannot answer. neutral, out of every comparison, and it says what would answer it.</p><p class="t-note mono t-dim">needs elevations</p></div>
+  </div>
+  <div style="margin-top:64px">
+  <figure>
+    <div class="diagram"><svg viewBox="0 0 1120 410" role="img" aria-label="A typical checker turns any file into a confident answer. Counterweight reads each input, marks what kind of evidence it is, and only compares numbers against a tolerance.">
+<text class="m dim" x="0" y="14">a typical ai checker</text>
+<rect class="bx" x="0" y="28" width="150" height="70"/>
+<text x="12" y="50">any file</text>
+<text class="m dim" x="12" y="68">model, plan or render</text>
+<line class="ln" x1="150" y1="63" x2="196" y2="63"/><polygon class="ah" points="196.0,63.0 190.0,59.5 190.0,66.5"/>
+<rect class="bx" x="200" y="28" width="150" height="70"/>
+<text x="212" y="50">model</text>
+<text class="m dim" x="212" y="68">reads everything</text>
+<text class="m dim" x="212" y="82">the same way</text>
+<line class="ln" x1="350" y1="63" x2="396" y2="63"/><polygon class="ah" points="396.0,63.0 390.0,59.5 390.0,66.5"/>
+<rect class="bx" x="400" y="28" width="170" height="70"/>
+<text x="412" y="50">score or answer</text>
+<text class="m dim" x="412" y="68">one confident output</text>
+<text class="dim" x="600" y="56">the source of each number is lost, and it is as sure</text>
+<text class="dim" x="600" y="74">about a render as about a bim model.</text>
+<text class="m dim" x="0" y="150">counterweight</text>
+<rect class="bx k" x="0" y="164" width="140" height="84"/>
+<text x="12" y="186">input file</text>
+<text class="m dim" x="12" y="204">bim, massing,</text>
+<text class="m dim" x="12" y="218">plan or image</text>
+<rect class="bx k" x="155" y="164" width="140" height="84"/>
+<text x="167" y="186">reader</text>
+<text class="m dim" x="167" y="204">geometry, or an</text>
+<text class="m dim" x="167" y="218">image region</text>
+<line class="ln" x1="140" y1="206" x2="153" y2="206"/><polygon class="ah" points="153.0,206.0 147.0,202.5 147.0,209.5"/>
+<rect class="bx k" x="310" y="164" width="140" height="84"/>
+<text x="322" y="186">evidence mark</text>
+<text class="m dim" x="322" y="204">measured, estimated,</text>
+<text class="m dim" x="322" y="218">observed or</text>
+<text class="m dim" x="322" y="232">not in input</text>
+<line class="ln" x1="295" y1="206" x2="308" y2="206"/><polygon class="ah" points="308.0,206.0 302.0,202.5 302.0,209.5"/>
+<rect class="bx k" x="465" y="164" width="140" height="84"/>
+<text x="477" y="186">value</text>
+<text class="m dim" x="477" y="204">a number, or a</text>
+<text class="m dim" x="477" y="218">range lo to hi</text>
+<line class="ln" x1="450" y1="206" x2="463" y2="206"/><polygon class="ah" points="463.0,206.0 457.0,202.5 457.0,209.5"/>
+<rect class="bx k" x="620" y="164" width="140" height="84"/>
+<text x="632" y="186">tolerance</text>
+<text class="m dim" x="632" y="204">per check, with</text>
+<text class="m dim" x="632" y="218">where it comes from</text>
+<line class="ln" x1="605" y1="206" x2="618" y2="206"/><polygon class="ah" points="618.0,206.0 612.0,202.5 612.0,209.5"/>
+<rect class="bx k" x="775" y="164" width="140" height="84"/>
+<text x="787" y="186">gap</text>
+<text class="m dim" x="787" y="204">leader's worst case</text>
+<text class="m dim" x="787" y="218">vs runner-up's best</text>
+<line class="ln" x1="760" y1="206" x2="773" y2="206"/><polygon class="ah" points="773.0,206.0 767.0,202.5 767.0,209.5"/>
+<rect class="bx k" x="930" y="164" width="140" height="84"/>
+<text x="942" y="186">verdict</text>
+<text class="m dim" x="942" y="204">leads, too close</text>
+<text class="m dim" x="942" y="218">to call, or open</text>
+<line class="ln" x1="915" y1="206" x2="928" y2="206"/><polygon class="ah" points="928.0,206.0 922.0,202.5 922.0,209.5"/>
+<line class="ln d" x1="380.0" y1="248" x2="380.0" y2="300"/><polygon class="ah" points="380.0,300.0 383.5,294.0 376.5,294.0"/>
+<rect class="bx" x="270.0" y="302" width="220" height="76"/>
+<text x="282.0" y="324">never ranked</text>
+<text class="m dim" x="282.0" y="342">observed: shown with its crop</text>
+<text class="m dim" x="282.0" y="356">not in input: says what would</text>
+<text class="m dim" x="282.0" y="370">answer it</text>
+<line class="ln" x1="970.0" y1="248" x2="810.0" y2="300"/><polygon class="ah" points="810.0,300.0 816.8,301.5 814.6,294.8"/>
+<rect class="bx k" x="670.0" y="302" width="230" height="76"/>
+<text x="682.0" y="324">map position</text>
+<text class="m dim" x="682.0" y="342">direction: who leads</text>
+<text class="m dim" x="682.0" y="356">distance: gap ÷ tolerance</text>
+<line class="ln" x1="1020.0" y1="248" x2="1020.0" y2="300"/><polygon class="ah" points="1020.0,300.0 1023.5,294.0 1016.5,294.0"/>
+<rect class="bx k" x="935.0" y="302" width="160" height="76"/>
+<text x="947.0" y="324">what would help</text>
+<text class="m dim" x="947.0" y="342">missing inputs, ranked</text>
+<text class="m dim" x="947.0" y="356">by checks they answer</text>
+</svg></div>
+    <figcaption class="label t-dim">fig. 1. the same file can produce a number on one check and only an observation on another. a massing has facade distances but no windows; a render shows glazing but has no scale.</figcaption>
+  </figure>
+  </div>
+</div></section>
+
+<!-- why this chart -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">one chart that will not pick a winner</h2>
+  <p class="t-body measure" style="margin-bottom:40px">the overview has one job: show, for seven checks at once, which option leads each one and whether that lead is real. i drew it five ways. four of them made a claim the evidence could not support.</p>
+  <div class="alts">
+    <div><svg viewBox="0 0 200 150" aria-hidden="true"><polygon class="h" points="100.0,53.5 114.4,60.5 118.0,76.1 108.0,88.6 92.0,88.6 82.0,76.1 85.6,60.5"/><polygon class="h" points="100.0,35.0 128.9,49.0 136.0,80.2 116.0,105.3 84.0,105.3 64.0,80.2 71.1,49.0"/><polygon class="h" points="100.0,16.0 143.8,37.1 154.6,84.5 124.3,122.5 75.7,122.5 45.4,84.5 56.2,37.1"/><polygon class="ff" points="100.0,48.1 114.3,60.6 129.9,78.8 108.9,90.5 92.7,87.1 69.9,78.9 58.9,39.2"/><polygon class="s" points="100.0,48.1 114.3,60.6 129.9,78.8 108.9,90.5 92.7,87.1 69.9,78.9 58.9,39.2"/><polygon class="ff" points="100.0,24.4 136.1,43.2 122.7,77.2 115.9,104.9 88.9,95.1 79.3,76.7 85.6,60.5"/><polygon class="s" points="100.0,24.4 136.1,43.2 122.7,77.2 115.9,104.9 88.9,95.1 79.3,76.7 85.6,60.5"/><text x="100" y="146" text-anchor="middle">bigger shape reads as better</text></svg><b class="t-note">radar chart</b><p class="t-note t-dim">the filled area reads as a total score, and every axis needs the same scale. metres, shares and counts do not share one.</p><p class="label verdict">rejected: implies a winner</p></div>
+    <div><svg viewBox="0 0 200 150" aria-hidden="true"><rect x="34" y="8" width="20" height="15" class="f" opacity="0.20"/><rect x="56" y="8" width="20" height="15" class="f" opacity="0.54"/><rect x="78" y="8" width="20" height="15" class="f" opacity="0.19"/><rect x="100" y="8" width="20" height="15" class="f" opacity="0.44"/><rect x="122" y="8" width="20" height="15" class="f" opacity="0.36"/><rect x="144" y="8" width="20" height="15" class="f" opacity="0.24"/><rect x="34" y="25" width="20" height="15" class="f" opacity="0.12"/><rect x="56" y="25" width="20" height="15" class="f" opacity="0.52"/><rect x="78" y="25" width="20" height="15" class="f" opacity="0.62"/><rect x="100" y="25" width="20" height="15" class="f" opacity="0.50"/><rect x="122" y="25" width="20" height="15" class="f" opacity="0.17"/><rect x="144" y="25" width="20" height="15" class="f" opacity="0.61"/><rect x="34" y="42" width="20" height="15" class="f" opacity="0.30"/><rect x="56" y="42" width="20" height="15" class="f" opacity="0.19"/><rect x="78" y="42" width="20" height="15" class="f" opacity="0.56"/><rect x="100" y="42" width="20" height="15" class="f" opacity="0.57"/><rect x="122" y="42" width="20" height="15" class="f" opacity="0.34"/><rect x="144" y="42" width="20" height="15" class="f" opacity="0.40"/><rect x="34" y="59" width="20" height="15" class="f" opacity="0.15"/><rect x="56" y="59" width="20" height="15" class="f" opacity="0.38"/><rect x="78" y="59" width="20" height="15" class="f" opacity="0.54"/><rect x="100" y="59" width="20" height="15" class="f" opacity="0.59"/><rect x="122" y="59" width="20" height="15" class="f" opacity="0.11"/><rect x="144" y="59" width="20" height="15" class="f" opacity="0.59"/><rect x="34" y="76" width="20" height="15" class="f" opacity="0.10"/><rect x="56" y="76" width="20" height="15" class="f" opacity="0.23"/><rect x="78" y="76" width="20" height="15" class="f" opacity="0.54"/><rect x="100" y="76" width="20" height="15" class="f" opacity="0.11"/><rect x="122" y="76" width="20" height="15" class="f" opacity="0.62"/><rect x="144" y="76" width="20" height="15" class="f" opacity="0.57"/><rect x="34" y="93" width="20" height="15" class="f" opacity="0.30"/><rect x="56" y="93" width="20" height="15" class="f" opacity="0.16"/><rect x="78" y="93" width="20" height="15" class="f" opacity="0.18"/><rect x="100" y="93" width="20" height="15" class="f" opacity="0.42"/><rect x="122" y="93" width="20" height="15" class="f" opacity="0.58"/><rect x="144" y="93" width="20" height="15" class="f" opacity="0.37"/><rect x="34" y="110" width="20" height="15" class="f" opacity="0.61"/><rect x="56" y="110" width="20" height="15" class="f" opacity="0.12"/><rect x="78" y="110" width="20" height="15" class="f" opacity="0.25"/><rect x="100" y="110" width="20" height="15" class="f" opacity="0.46"/><rect x="122" y="110" width="20" height="15" class="f" opacity="0.39"/><rect x="144" y="110" width="20" height="15" class="f" opacity="0.31"/><text x="100" y="146" text-anchor="middle">colour needs one shared scale</text></svg><b class="t-note">heatmap</b><p class="t-note t-dim">good for scanning, but colour has to mean the same thing in every row. normalising each row hides whether a difference is inside the tolerance.</p><p class="label verdict">kept for the evidence tab</p></div>
+    <div><svg viewBox="0 0 200 150" aria-hidden="true"><line class="h" x1="20" y1="42" x2="180" y2="42"/><rect class="f" x="26" y="30.3" width="14" height="11.7"/><rect class="f" x="52" y="16.8" width="14" height="25.2"/><rect class="f" x="78" y="30.9" width="14" height="11.1"/><rect class="f" x="104" y="21.0" width="14" height="21.0"/><rect class="f" x="130" y="23.9" width="14" height="18.1"/><rect class="f" x="156" y="28.8" width="14" height="13.2"/><line class="h" x1="20" y1="84" x2="180" y2="84"/><rect class="f" x="26" y="75.5" width="14" height="8.5"/><rect class="f" x="52" y="59.6" width="14" height="24.4"/><rect class="f" x="78" y="55.7" width="14" height="28.3"/><rect class="f" x="104" y="60.4" width="14" height="23.6"/><rect class="f" x="130" y="73.7" width="14" height="10.3"/><rect class="f" x="156" y="56.2" width="14" height="27.8"/><line class="h" x1="20" y1="126" x2="180" y2="126"/><rect class="f" x="26" y="110.5" width="14" height="15.5"/><rect class="f" x="52" y="114.7" width="14" height="11.3"/><rect class="f" x="78" y="100.1" width="14" height="25.9"/><rect class="f" x="104" y="99.5" width="14" height="26.5"/><rect class="f" x="130" y="108.6" width="14" height="17.4"/><rect class="f" x="156" y="106.3" width="14" height="19.7"/><text x="100" y="146" text-anchor="middle">7 charts, no tolerance</text></svg><b class="t-note">bars per check</b><p class="t-note t-dim">honest per check, but seven charts to scan, and a 0.4 m lead looks as real as a 4 m one.</p><p class="label verdict">kept inside each open check</p></div>
+    <div><svg viewBox="0 0 200 150" aria-hidden="true"><text x="22" y="21">1</text><rect class="ff" x="36" y="12" width="140" height="13"/><rect class="f" x="36" y="12" width="108.0" height="13"/><text x="22" y="41">2</text><rect class="ff" x="36" y="32" width="140" height="13"/><rect class="f" x="36" y="32" width="89.0" height="13"/><text x="22" y="61">3</text><rect class="ff" x="36" y="52" width="140" height="13"/><rect class="f" x="36" y="52" width="75.7" height="13"/><text x="22" y="81">4</text><rect class="ff" x="36" y="72" width="140" height="13"/><rect class="f" x="36" y="72" width="53.0" height="13"/><text x="22" y="101">5</text><rect class="ff" x="36" y="92" width="140" height="13"/><rect class="f" x="36" y="92" width="46.0" height="13"/><text x="22" y="121">6</text><rect class="ff" x="36" y="112" width="140" height="13"/><rect class="f" x="36" y="112" width="43.6" height="13"/><text x="100" y="146" text-anchor="middle">a 0.1 m gap reads as a loss</text></svg><b class="t-note">ranked list</b><p class="t-note t-dim">ranks hide ties. second place by 0.1 m reads like a loss, and a missing input quietly falls to the bottom.</p><p class="label verdict">rejected: hides ties</p></div>
+    <div class="ours"><svg viewBox="0 0 200 150" aria-hidden="true"><ellipse class="ff" cx="100" cy="70" rx="23.76" ry="17.28"/><ellipse class="h" cx="100" cy="70" rx="36.2" ry="26.3"/><ellipse class="h" cx="100" cy="70" rx="52.7" ry="38.3"/><ellipse class="h" cx="100" cy="70" rx="65.1" ry="47.4"/><line class="h" x1="100" y1="70" x2="100.0" y2="15.0"/><circle class="s" cx="100.0" cy="11.1" r="3"/><line class="h" x1="100" y1="70" x2="165.5" y2="42.5"/><circle class="s" cx="170.1" cy="40.6" r="3"/><line class="h" x1="100" y1="70" x2="165.5" y2="97.5"/><circle class="s" cx="170.1" cy="99.4" r="3"/><line class="h" x1="100" y1="70" x2="100.0" y2="125.0"/><circle class="s" cx="100.0" cy="128.9" r="3"/><line class="h" x1="100" y1="70" x2="34.5" y2="97.5"/><circle class="s" cx="29.9" cy="99.4" r="3"/><line class="h" x1="100" y1="70" x2="34.5" y2="42.5"/><circle class="s" cx="29.9" cy="40.6" r="3"/><circle class="f" cx="138.7" cy="53.8" r="4"/><circle class="f" cx="100.0" cy="112.7" r="4"/><circle class="f" cx="72.1" cy="81.7" r="4"/><circle class="s" cx="106" cy="66" r="4"/><text x="100" y="146" text-anchor="middle">who leads, by how many tolerances</text></svg><b class="t-note">the map</b><p class="t-note t-dim">one chart for every check. direction is who leads, distance is the lead divided by that check's tolerance, so units stop mattering and ties have a place to sit.</p><p class="label verdict">chosen</p></div>
+  </div>
+  <p class="t-note t-dim measure" style="margin-top:20px">the cost: the map shows only the leader on each check. the full spread of all six options lives in the strip inside each open check, one click away.</p>
+  <div class="g12" style="margin-top:96px">
+    <div class="c7 anat">
+      <figure><svg viewBox="0 0 460 340" role="img" aria-label="The map: six options at the corners, rings at 2, 5 and 10 times tolerance, a fog in the middle for ties, and a tail for a range.">
+<ellipse class="fog" cx="230" cy="170" rx="45.36" ry="34.56"/>
+<ellipse class="h" cx="230" cy="170" rx="45.36" ry="34.56" stroke-dasharray="2 3"/>
+<ellipse class="h" cx="230" cy="170" rx="69.1" ry="52.7"/>
+<text class="m" x="254.7" y="118.0">2×</text>
+<ellipse class="h" cx="230" cy="170" rx="100.6" ry="76.6"/>
+<text class="m" x="264.6" y="95.3">5×</text>
+<ellipse class="h" cx="230" cy="170" rx="124.3" ry="94.7"/>
+<text class="m" x="272.1" y="78.1">10×</text>
+<line class="h" x1="230" y1="170" x2="230.0" y2="70.2"/>
+<text x="230.0" y="55.0" text-anchor="middle">courtyard</text>
+<line class="h" x1="230" y1="170" x2="343.5" y2="120.1"/>
+<text x="365.3" y="114.5" text-anchor="middle">terraces</text>
+<line class="h" x1="230" y1="170" x2="343.5" y2="219.9"/>
+<text x="365.3" y="233.5" text-anchor="middle">twin bars</text>
+<line class="h" x1="230" y1="170" x2="230.0" y2="269.8"/>
+<text x="230.0" y="293.0" text-anchor="middle">tower</text>
+<line class="h" x1="230" y1="170" x2="116.5" y2="219.9"/>
+<text x="94.7" y="233.5" text-anchor="middle">perimeter</text>
+<line class="h" x1="230" y1="170" x2="116.5" y2="120.1"/>
+<text x="94.7" y="114.5" text-anchor="middle">points</text>
+<circle class="f" cx="303.8" cy="137.5" r="7"/>
+<line x1="230.0" y1="216.8" x2="230.0" y2="251.4" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".18"/>
+<circle class="f" cx="230.0" cy="216.8" r="7"/>
+<circle class="s" cx="207.3" cy="170.0" r="7" fill="var(--bg)"/>
+<circle class="nb" cx="321.8" cy="125.5" r="9"/><text class="num" x="321.8" y="128.5" text-anchor="middle">1</text>
+<circle class="nb" cx="305.1" cy="74.1" r="9"/><text class="num" x="305.1" y="77.1" text-anchor="middle">2</text>
+<circle class="nb" cx="185.3" cy="172.0" r="9"/><text class="num" x="185.3" y="175.0" text-anchor="middle">3</text>
+<circle class="nb" cx="246.0" cy="255.4" r="9"/><text class="num" x="246.0" y="258.4" text-anchor="middle">4</text>
+</svg>
+        <figcaption class="label t-dim">fig. 3. the map, redrawn. every position is a number you can read back.</figcaption>
+      </figure>
+    </div>
+    <div class="c5">
+      <ol class="keyed t-note">
+        <li><span class="n">1</span><div><b>direction is who leads</b>a check sits on the spoke toward the option its evidence favours.</div></li>
+        <li><span class="n">2</span><div><b>distance is by how much</b>the lead divided by the check's tolerance, on rings at 2×, 5× and 10×. a 1.2 m lead on overlook and a 6 point lead on glazing can sit on the same chart honestly.</div></li>
+        <li><span class="n">3</span><div><b>the fog is too close to call</b>anything within one tolerance stays in the middle, between the two options it cannot separate. the tool will not pick a side.</div></li>
+        <li><span class="n">4</span><div><b>a tail means a range</b>when the lead rests on estimates, the dot sits at the smallest lead the evidence allows and a blurred tail runs to the largest.</div></li>
+      </ol>
+      <figure style="margin-top:32px">
+        <div class="frame crop" data-img="shots/base.jpg" data-x="1012" data-y="194" data-cw="412" data-ch="394" aria-label="The map in the prototype"></div>
+        <figcaption class="label t-dim">the same map in the prototype, with the fog drifting.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="t-note t-dim measure" style="margin-top:32px">the reasoning behind every ring, threshold and scale is in the appendix.</p>
+</div></section>
+
+<!-- key design decisions -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">key design decisions</h2>
+  <div class="dec">
+    <div>
+      <div class="frame shot" data-img="shots/hero.jpg" aria-label="A check open, its evidence highlighted in the model"></div>
+      <div class="g12">
+        <div class="c5"><span class="label mono t-dim">01</span><h3 class="t-head" style="margin-top:8px">every number points back at the geometry</h3></div>
+        <div class="c7 micro">
+          <div><p class="label t-dim">why</p><p class="t-note">a review argues about places, not figures. a distance nobody can locate cannot be checked or challenged.</p></div>
+          <div><p class="label t-dim">tradeoff</p><p class="t-note">every value has to carry a location, which limits what can become a check at all.</p></div>
+          <div><p class="label t-dim">result</p><p class="t-note">show in model flies the camera to the exact facades, route or roof, with the value pinned beside it.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="frame shot" data-img="shots/mill-ai.jpg" aria-label="An AI reference with its number hidden"></div>
+      <div class="g12">
+        <div class="c5"><span class="label mono t-dim">02</span><h3 class="t-head" style="margin-top:8px">numbers from ai renders are hidden by default</h3></div>
+        <div class="c7 micro">
+          <div><p class="label t-dim">why</p><p class="t-note">generated images break perspective and shadow geometry.<sup><a href="#r5">5</a></sup> a lane width scaled from people in a render looks precise and is not.</p></div>
+          <div><p class="label t-dim">tradeoff</p><p class="t-note">a reviewer who wants a rough figure has one more click, and the render rarely ranks.</p></div>
+          <div><p class="label t-dim">result</p><p class="t-note">the crop it came from is shown instead. "show the number anyway" reveals it, labelled as a guess.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="frame shot" data-img="shots/base.jpg" aria-label="Every check with its own verdict"></div>
+      <div class="g12">
+        <div class="c5"><span class="label mono t-dim">03</span><h3 class="t-head" style="margin-top:8px">no overall winner, anywhere</h3></div>
+        <div class="c7 micro">
+          <div><p class="label t-dim">why</p><p class="t-note">a total hides the tradeoffs a review exists to argue about, and an explained score makes people agree with it whether or not it is right.<sup><a href="#r6">6</a></sup></p></div>
+          <div><p class="label t-dim">tradeoff</p><p class="t-note">a review ends without a single answer. that is harder to sell and easier to defend.</p></div>
+          <div><p class="label t-dim">result</p><p class="t-note">clicking an option shows where it stands on each check, in words. lead counts per option were removed for reading as a score.</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="frame shot" data-img="shots/mill-evid.jpg" aria-label="The evidence tab with the ranked gaps"></div>
+      <div class="g12">
+        <div class="c5"><span class="label mono t-dim">04</span><h3 class="t-head" style="margin-top:8px">the next drawing request writes itself</h3></div>
+        <div class="c7 micro">
+          <div><p class="label t-dim">why</p><p class="t-note">when evidence is missing, the most useful output is what to ask for next, not a blank.</p></div>
+          <div><p class="label t-dim">tradeoff</p><p class="t-note">gaps are ranked by how many checks they would answer, not by which checks matter most on this project.</p></div>
+          <div><p class="label t-dim">result</p><p class="t-note">"a ground-floor plan for stepped block would answer two more checks and make both comparable." ai references are never asked for drawings.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="g12" style="margin-top:64px">
+    <h3 class="label t-dim c3">smaller decisions</h3>
+    <div class="c9">
+      <ul class="metrics">
+        <li><span>sync is a button, not live</span><span>a review compares fixed versions, and geometry mid-edit is often broken</span></li>
+        <li><span>a sync shows what moved</span><span>reviews repeat, so the change is the news, not the whole table again</span></li>
+        <li><span>looking is not leaving out</span><span>click inspects; the eye, or shift-click, removes an option</span></li>
+        <li><span>a failed sync keeps the last good comparison</span><span>and the status says so</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- language -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">language</h2>
+  <p class="t-body measure" style="margin-bottom:40px">geometry proves a condition, not an experience. every sentence the tool writes was checked against that line.</p>
+  <div class="pairs t-body">
+    <div><s>this canopy will disturb residents when it rains.</s><p>a canopy is directly below these windows. whether rain is audible depends on roof build-up and room construction.</p></div>
+    <div><s>scheme a fails the overlook standard.</s><p>4 facing window pairs are closer than 12 m, your project setting.</p></div>
+    <div><s>two roofs have no drainage.</s><p>no drain objects on 2 flat areas. they may be unmodelled rather than missing.</p></div>
+  </div>
+</div></section>
+
+<!-- edge cases -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">when the answer is "not from this"</h2>
+  <p class="t-body measure" style="margin-bottom:40px">early drawings are incomplete by nature, so the most useful answer is often a refusal with a reason. each of these is a capture of the prototype with the comparison rules running, not a mockup.</p>
+  <div class="edges">
+    <figure><div class="frame crop" data-img="shots/edge/edge-none.jpg" data-x="1010" data-y="12" data-cw="420" data-ch="660" aria-label="No evidence anywhere"></div><figcaption class="t-note"><b>no evidence anywhere</b><span class="t-dim">nothing is scored, and each file says what it is missing.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-one.jpg" data-x="1010" data-y="12" data-cw="420" data-ch="660" aria-label="Evidence in one option"></div><figcaption class="t-note"><b>evidence in one option</b><span class="t-dim">one range is not a comparison, so the check stays open.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-wide.jpg" data-x="1010" data-y="220" data-cw="420" data-ch="660" aria-label="AI reference, range too loose"></div><figcaption class="t-note"><b>ai reference, range too loose</b><span class="t-dim">scaled from people in the image. hidden, left out, crop shown.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-scale.jpg" data-x="1010" data-y="220" data-cw="420" data-ch="660" aria-label="Scale not verified"></div><figcaption class="t-note"><b>scale not verified</b><span class="t-dim">a hand-drawn scale bar turns every length into a range.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-ai.jpg" data-x="1010" data-y="220" data-cw="420" data-ch="660" aria-label="Observed, never measured"></div><figcaption class="t-note"><b>observed, never measured</b><span class="t-dim">an image can show glazing. it cannot size it.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-unmodelled.jpg" data-x="1010" data-y="220" data-cw="420" data-ch="660" aria-label="Object may be unmodelled"></div><figcaption class="t-note"><b>object may be unmodelled</b><span class="t-dim">a missing drain is a question for the model, not a defect.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-changed.jpg" data-x="1010" data-y="220" data-cw="420" data-ch="660" aria-label="Model changed"></div><figcaption class="t-note"><b>model changed</b><span class="t-dim">the check now reads too close to call, and says it changed since the last review.</span></figcaption></figure>
+    <figure><div class="frame crop" data-img="shots/edge/edge-single.jpg" data-x="1010" data-y="12" data-cw="420" data-ch="660" aria-label="One option left"></div><figcaption class="t-note"><b>one option left</b><span class="t-dim">the map steps aside rather than draw a chart of one.</span></figcaption></figure>
+    <figure class="wide"><div class="frame crop" data-img="shots/edge/edge-syncfail.jpg" data-x="520" data-y="0" data-cw="920" data-ch="470" aria-label="Sync failed"></div><figcaption class="t-note"><b>sync failed</b><span class="t-dim">the last good comparison stays on screen, and the status says so.</span></figcaption></figure>
+  </div>
+</div></section>
+
+<!-- engineering -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">built to plug into the tools offices already use</h2>
+  <p class="t-body measure" style="margin-bottom:40px">counterweight is a widget, not a modelling tool. a thin adapter per design platform does four things, and everything after it is shared. evidence kinds come from what an input contains, never from which platform sent it, so the rules and their tests do not change per platform.</p>
+  <figure>
+    <div class="diagram"><svg viewBox="0 0 1120 380" role="img" aria-label="Design platforms each connect through an adapter. Adapters send snapshots to one engine, which feeds the widget and sends element ids back for show in model.">
+<text class="m dim" x="0" y="14">design platform</text><text class="m dim" x="200" y="14">adapter</text>
+<rect class="bx" x="0" y="26" width="150" height="40"/><text x="12" y="51">rhino</text>
+<line class="ln" x1="150" y1="46" x2="196" y2="46"/><polygon class="ah" points="196.0,46.0 190.0,42.5 190.0,49.5"/>
+<rect class="bx k" x="200" y="26" width="110" height="40"/><text class="m" x="212" y="51">adapter</text>
+<line class="ln" x1="310" y1="46" x2="350" y2="46"/>
+<rect class="bx" x="0" y="78" width="150" height="40"/><text x="12" y="103">revit</text>
+<line class="ln" x1="150" y1="98" x2="196" y2="98"/><polygon class="ah" points="196.0,98.0 190.0,94.5 190.0,101.5"/>
+<rect class="bx k" x="200" y="78" width="110" height="40"/><text class="m" x="212" y="103">adapter</text>
+<line class="ln" x1="310" y1="98" x2="350" y2="98"/>
+<rect class="bx" x="0" y="130" width="150" height="40"/><text x="12" y="155">sketchup</text>
+<line class="ln" x1="150" y1="150" x2="196" y2="150"/><polygon class="ah" points="196.0,150.0 190.0,146.5 190.0,153.5"/>
+<rect class="bx k" x="200" y="130" width="110" height="40"/><text class="m" x="212" y="155">adapter</text>
+<line class="ln" x1="310" y1="150" x2="350" y2="150"/>
+<rect class="bx" x="0" y="182" width="150" height="40"/><text x="12" y="207">archicad</text>
+<line class="ln" x1="150" y1="202" x2="196" y2="202"/><polygon class="ah" points="196.0,202.0 190.0,198.5 190.0,205.5"/>
+<rect class="bx k" x="200" y="182" width="110" height="40"/><text class="m" x="212" y="207">adapter</text>
+<line class="ln" x1="310" y1="202" x2="350" y2="202"/>
+<rect class="bx" x="0" y="234" width="150" height="40"/><text x="12" y="259">forma</text>
+<line class="ln" x1="150" y1="254" x2="196" y2="254"/><polygon class="ah" points="196.0,254.0 190.0,250.5 190.0,257.5"/>
+<rect class="bx k" x="200" y="234" width="110" height="40"/><text class="m" x="212" y="259">adapter</text>
+<line class="ln" x1="310" y1="254" x2="350" y2="254"/>
+<rect class="bx" x="0" y="286" width="150" height="40"/><text x="12" y="311">ifc files</text>
+<line class="ln" x1="150" y1="306" x2="196" y2="306"/><polygon class="ah" points="196.0,306.0 190.0,302.5 190.0,309.5"/>
+<rect class="bx k" x="200" y="286" width="110" height="40"/><text class="m" x="212" y="311">adapter</text>
+<line class="ln" x1="310" y1="306" x2="350" y2="306"/>
+<line class="ln" x1="350" y1="46" x2="350" y2="306"/>
+<line class="ln" x1="350" y1="176" x2="396" y2="176"/><polygon class="ah" points="396.0,176.0 390.0,172.5 390.0,179.5"/>
+<rect class="bx k" x="400" y="120" width="200" height="112"/>
+<text x="412" y="142">snapshot</text>
+<text class="m dim" x="412" y="160">per alternative:</text>
+<text class="m dim" x="412" y="174">element ids, categories,</text>
+<text class="m dim" x="412" y="188">geometry, units, and</text>
+<text class="m dim" x="412" y="202">what the input contains</text>
+<line class="ln" x1="600" y1="176" x2="646" y2="176"/><polygon class="ah" points="646.0,176.0 640.0,172.5 640.0,179.5"/>
+<rect class="bx k" x="650" y="120" width="200" height="112"/>
+<text x="662" y="142">engine</text>
+<text class="m dim" x="662" y="160">readers, one per check</text>
+<text class="m dim" x="662" y="174">rules.js, tested</text>
+<text class="m dim" x="662" y="188">baseline per review</text>
+<line class="ln" x1="850" y1="176" x2="896" y2="176"/><polygon class="ah" points="896.0,176.0 890.0,172.5 890.0,179.5"/>
+<rect class="bx k" x="900" y="120" width="200" height="112"/>
+<text x="912" y="142">widget</text>
+<text class="m dim" x="912" y="160">verdicts, the map,</text>
+<text class="m dim" x="912" y="174">what changed,</text>
+<text class="m dim" x="912" y="188">what would help</text>
+<path class="ln d" d="M330 26 V8 H1000 V114"/>
+<line class="ln d" x1="1000" y1="104" x2="1000" y2="118"/><polygon class="ah" points="1000.0,118.0 1003.5,112.0 996.5,112.0"/>
+<text class="m dim" x="560" y="24">change event: comparison out of date</text>
+<path class="ln d" d="M750 232 V356 H330 V336"/>
+<line class="ln d" x1="330" y1="344" x2="330" y2="330"/><polygon class="ah" points="330.0,330.0 326.5,336.0 333.5,336.0"/>
+<text class="m dim" x="420" y="372">show in model: element ids and a camera hint, back to the platform</text>
+</svg></div>
+    <figcaption class="label t-dim">fig. 2. one adapter per platform, one engine and one widget for all of them. the platform only ever sees element ids coming back.</figcaption>
+  </figure>
+  <div class="cells four" style="margin-top:64px">
+    <div><b class="t-note">find the alternatives</b><p class="t-note t-dim">maps the team's own grouping to options: layers or blocks in rhino, design options in revit, tags in sketchup, or one file each.</p></div>
+    <div><b class="t-note">send a snapshot</b><p class="t-note t-dim">not the model. element ids, categories, geometry, units, and what the input contains: openings, drains, rooms.</p></div>
+    <div><b class="t-note">watch for edits</b><p class="t-note t-dim">listens for the platform's own change events and marks the comparison out of date.</p></div>
+    <div><b class="t-note">show in model</b><p class="t-note t-dim">takes element ids and the measured line or route back, highlights them and moves the view.</p></div>
+  </div>
+  <div class="g12" style="margin-top:64px">
+    <h3 class="label t-dim c3">what is real</h3>
+    <div class="c9 measure">
+      <p class="t-body">the prototype is a typescript monorepo. the comparison rules sit in a package with no dependencies. every message between widget and platform follows a versioned schema, with json schema generated for adapters written in c# or ruby. the 3d canvas is a stand-in platform behind a real adapter, so the widget cannot tell it from a rhino plugin.</p>
+      <p class="t-body">two checks, overlook and the bin route, are measured from the model's own geometry. an edit in the platform is what moves their numbers, and show in model draws the exact line or route that was measured.</p>
+      <p class="t-body">an ifc file dropped on the canvas becomes a new option. the adapter turns walls, slabs and roofs into the volumes the readers measure, squares the model to its own grid, keeps a canopy on columns off the ground so bins can pass under it, and finds the bin store, the lobby and the collection point by the names offices already give them.</p>
+    </div>
+  </div>
+  <div class="g12" style="margin-top:64px">
+    <h3 class="label t-dim c3">how it is tested</h3>
+    <div class="c9">
+      <ul class="metrics">
+        <li><span>fewer than two comparable inputs</span><span>open, nothing scored</span></li>
+        <li><span>gap = leader's worst case − runner-up's best case</span><span>conservative</span></li>
+        <li><span>gap ≤ tolerance</span><span>too close to call</span></li>
+        <li><span>observed or not in input</span><span>never ranked</span></li>
+        <li><span>number read from an ai reference</span><span>hidden until asked for</span></li>
+      </ul>
+      <p class="t-body measure" style="margin-top:28px">no model decides a verdict, so the same inputs always give the same answer. property tests generate thousands of random cases and assert what must always hold: a range never wins on its best case, the order of options changes nothing, moving the whole model changes nothing, a bin route never cuts through a building.</p>
+      <p class="t-body measure">to test the tests, i planted fifteen bugs, from comparing midpoints instead of worst cases to letting bins walk through walls. all fifteen were caught by the 91 automated tests. the ifc adapter is tested end to end: models written in millimetres, turned off the grid and moved to survey coordinates must read the same as the boxes they were drawn from.</p>
+    </div>
+  </div>
+  <div class="g12" style="margin-top:64px">
+    <h3 class="label t-dim c3">what this does not prove</h3>
+    <div class="c9 measure">
+      <p class="t-body">the tests prove the comparison is consistent and conservative, and that the two readers measure the geometry they are given. they do not prove these are the right checks, or that a real office model arrives clean: layers misnamed, rooms unnamed, a bin store drawn as a line. the other five checks still read recorded, illustrative evidence. before any check is trusted on a real project it needs a written claim, the geometry it requires, the inputs that make it invalid, tests on real models and a reviewer with the right expertise.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- what's next -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">what's next</h2>
+  <div class="cells three">
+    <div><b class="t-note">recorded sessions</b><p class="t-note t-dim">practising architects on a real past project, testing whether the checks match what they wish they had caught.</p></div>
+    <div><b class="t-note">a live rhino adapter</b><p class="t-note t-dim">so the readers that already measure dropped ifc files measure the model as it is being drawn.</p></div>
+    <div><b class="t-note">one reviewed check</b><p class="t-note t-dim">one check taken all the way, with real models and an expert reviewer, before adding more.</p></div>
+  </div>
+</div></section>
+
+<!-- reflection -->
+<section class="band"><div class="wrap">
+  <h2 class="label t-dim">reflection</h2>
+  <p class="t-lead measure">the hardest design work here was deciding what the screen must refuse to say. every version got more trustworthy by showing less, and more useful to the person who has to defend the drawing.</p>
+</div></section>
+
+<!-- appendix -->
+<section class="band"><div class="wrap g12">
+  <h2 class="label t-dim c3">appendix</h2>
+  <div class="c9 appendix">
+    <details>
+      <summary class="t-head">tolerance per check</summary>
+      <div class="scroll-x"><table>
+        <thead><tr><th>check</th><th>what is measured</th><th>tolerance</th><th>why that tolerance</th></tr></thead>
+        <tbody>
+          <tr><td>overlook between homes</td><td>closest facing facades, higher is better</td><td class="mono">±0.6 m</td><td>massing and plans read to about ±0.5 m, rounded up</td></tr>
+          <tr><td>glass you can't reach</td><td>share of glazing not reachable from inside or a balcony</td><td class="mono">±3 pts</td><td>how fixed panes are classified moves the share by about 3 points</td></tr>
+          <tr><td>rain noise over bedrooms</td><td>roof surfaces directly below habitable windows</td><td class="mono">±0.5</td><td>counts are whole surfaces, so a difference of one is real</td></tr>
+          <tr><td>step-free route home</td><td>longest step-free route, entrance to front door</td><td class="mono">±2 m</td><td>routes traced on plan read to about ±2 m</td></tr>
+          <tr><td>bins and deliveries</td><td>bin store to collection kerb</td><td class="mono">±0.6 m</td><td>same reading precision as facade distances</td></tr>
+          <tr><td>replacing big equipment</td><td>clear service route for the largest plant item</td><td class="mono">±0.1 m</td><td>door and corridor widths read to ±0.1 m</td></tr>
+          <tr><td>water and debris pooling</td><td>flat roof areas with no drain found</td><td class="mono">±0.5</td><td>counts are whole areas, so a difference of one is real</td></tr>
+        </tbody>
+      </table></div>
+      <p class="t-note t-dim measure" style="margin-top:20px">these are reading tolerances i set from how precisely each kind of input can be read. they are assumptions, not standards, so the product shows each one with its reason, and a project can override it. an override is labelled everywhere it changes a verdict, including the exported review.</p>
+    </details>
+    <details>
+      <summary class="t-head">why these numbers on the map</summary>
+  <div class="scroll-x"><table>
+    <thead><tr><th>parameter</th><th>value</th><th>why</th><th>what would change it</th></tr></thead>
+    <tbody>
+      <tr><td>distance unit</td><td class="mono">gap ÷ tolerance</td><td>checks are in metres, percentages and counts. dividing by the tolerance makes every lead a multiple of its own measurement noise, which has no unit.</td><td>nothing; this is what lets one chart hold every check</td></tr>
+      <tr><td>the fog</td><td class="mono">≤ 1×</td><td>inside one tolerance the two values cannot be told apart from how the input was read. calling it either way would be a guess.</td><td>a tighter tolerance, from better input</td></tr>
+      <tr><td>scale past the fog</td><td class="mono">log₁₀</td><td>leads run from just over 1× to more than 40×. a straight scale would crush the small leads, which are the ones a review argues about.</td><td>a project where every lead is small</td></tr>
+      <tr><td>rings</td><td class="mono">2×, 5×, 10×</td><td>the 1, 2, 5 steps engineers already read on scales and charts. roughly: clear, clearly, overwhelming.</td><td>an office's own thresholds</td></tr>
+      <tr><td>outer limit</td><td class="mono">10×</td><td>past ten tolerances, more distance tells a reviewer nothing new. the dot stays on the outer ring and its label gives the exact figure.</td><td>nothing</td></tr>
+      <tr><td>ranges</td><td class="mono">worst case</td><td>the lead is measured from the leader's worst case to the runner-up's best case, so a range never wins on its best case.</td><td>nothing; this is the rule the tests check hardest</td></tr>
+      <tr><td>count tolerance</td><td class="mono">±0.5</td><td>a count of whole things changes in steps of one, so any difference of one is real and nothing smaller exists.</td><td>nothing</td></tr>
+      <tr><td>ties</td><td class="mono">between the pair</td><td>a tie sits in the fog on the line between the two options it cannot separate, so you still see which two are close.</td><td>nothing</td></tr>
+    </tbody>
+  </table></div>
+    </details>
+    <details>
+      <summary class="t-head">what the tests assert</summary>
+      <ul class="metrics">
+        <li><span>a gap within tolerance is always too close to call</span><span>pass</span></li>
+        <li><span>a range never wins on its best case</span><span>pass</span></li>
+        <li><span>the leader beats every option, not only the runner-up</span><span>pass</span></li>
+        <li><span>the order options are listed in changes nothing</span><span>pass</span></li>
+        <li><span>units do not matter: scaling values and tolerance together changes nothing</span><span>pass</span></li>
+        <li><span>flipping the direction and negating values gives the same leader</span><span>pass</span></li>
+        <li><span>a larger tolerance can turn a lead into a tie, never a tie into a lead</span><span>pass</span></li>
+        <li><span>an option left out never leads</span><span>pass</span></li>
+        <li><span>removing an option ranked third or lower changes nothing</span><span>pass</span></li>
+        <li><span>ties stay in the fog, leads sit outside it, further always means more</span><span>pass</span></li>
+        <li><span>ai numbers are hidden by default; observations never become numbers</span><span>pass</span></li>
+        <li><span>anything that is not a number is refused, never ranked</span><span>pass</span></li>
+        <li><span>every check states its tolerance and where it comes from</span><span>pass</span></li>
+      </ul>
+    </details>
+    <details>
+      <summary class="t-head">one sync, step by step</summary>
+      <ul class="metrics">
+        <li><span>01 · edit in the platform</span><span>widget marks the comparison out of date</span></li>
+        <li><span>02 · sync</span><span>only elements whose fingerprint changed travel</span></li>
+        <li><span>03 · re-read</span><span>only checks that read those elements re-run</span></li>
+        <li><span>04 · compare</span><span>against the last review; moved checks are marked</span></li>
+        <li><span>05 · if the platform does not answer</span><span>the last good comparison stays, and says so</span></li>
+      </ul>
+    </details>
+  </div>
+</div></section>
+
+<!-- sources -->
+<section class="band"><div class="wrap g12">
+  <h2 class="label t-dim c3">sources</h2>
+  <ol class="refs c9">
+    <li id="r1"><span>chong, w.k. and low, s.p. (2006). latent building defects: causes and design strategies to prevent them. <i>journal of performance of constructed facilities</i> 20(3). <a href="https://doi.org/10.1061/(ASCE)0887-3828(2006)20:3(213)">doi</a></span></li>
+    <li id="r2"><span>lopez, r. and love, p.e.d. (2012). design error costs in construction projects. <i>journal of construction engineering and management</i> 138(5). <a href="https://doi.org/10.1061/(ASCE)CO.1943-7862.0000454">doi</a></span></li>
+    <li id="r3"><span>bordass, b. and leaman, a. (2004). probe: how it happened, what it found, and did it get us anywhere? and (2005) making feedback and post-occupancy evaluation routine, <i>building research and information</i> 33(4). <a href="https://www.usablebuildings.co.uk/UsableBuildings/Unprotected/ProbeHowItHappened.pdf">pdf</a></span></li>
+    <li id="r4"><span>riba (2025). second riba ai report. <a href="https://www.riba.org/news/second-riba-ai-report-shows-surge-in-usage-among-uk-architects/">link</a></span></li>
+    <li id="r5"><span>sarkar, a. et al. (2024). shadows don't lie and lines can't bend! generative models don't know projective geometry… for now. cvpr 2024. <a href="https://arxiv.org/abs/2311.17138">arxiv</a></span></li>
+    <li id="r6"><span>bansal, g. et al. (2021). does the whole exceed its parts? the effect of ai explanations on complementary team performance. chi '21. <a href="https://doi.org/10.1145/3411764.3445717">doi</a></span></li>
+    <li id="r7"><span>buçinca, z., malaya, m.b. and gajos, k.z. (2021). to trust or to think. <i>proceedings of the acm on human-computer interaction</i> 5(cscw1). <a href="https://doi.org/10.1145/3449287">doi</a></span></li>
+    <li id="r8"><span>google pair. people + ai guidebook: explainability and trust. <a href="https://pair.withgoogle.com/chapter/explainability-trust/">link</a></span></li>
+    <li id="r9"><span>building and construction authority, singapore (2019). façade access design guide, v1.1. <a href="https://isomer-user-content.by.gov.sg/338/166eac3b-20d3-44d3-8733-bc65b02903ef/fa%C3%A7ade-access-design-guide-(fadg).pdf">pdf</a></span></li>
+    <li id="r10"><span>ying, h. and sacks, r. (2024). from automatic to autonomous: an llm-driven approach for generic building compliance checking. cib w78 2024. <a href="https://easychair.org/publications/preprint/k2PJ/open">preprint</a></span></li>
+  </ol>
+</div></section>
+
+<nav class="case-end">
+  <a href="#top" onclick="scrollTo({top:0,behavior:'smooth'});return false">back to top</a>
+  <a href="../demo/">open the prototype</a>
+  <span>evana sajan · 2026</span>
+</nav>
+
+<script>
+// Captures of the prototype at 1440 × 900. A shot fits the whole frame; a crop frames one region.
+const els = [...document.querySelectorAll('.shot, .crop, .live')];
+function fit(el) {
+  const f = el.querySelector('iframe, img'); if (!f) return;
+  if (el.classList.contains('crop')) {
+    const k = el.clientWidth / +el.dataset.cw;
+    f.style.transform = `scale(${k}) translate(${-el.dataset.x}px, ${-el.dataset.y}px)`;
+  } else f.style.transform = `scale(${el.clientWidth / 1440})`;
+}
+const size = el => { el.style.height = (el.classList.contains('crop') ? el.dataset.ch * el.clientWidth / el.dataset.cw : 900 * el.clientWidth / 1440) + 'px'; };
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting || e.target.querySelector('iframe, img')) return;
+  const el = e.target;
+  if (el.dataset.img) {
+    const im = new Image(1440, 900); im.src = el.dataset.img; im.alt = el.getAttribute('aria-label') || ''; im.decoding = 'async';
+    el.appendChild(im); fit(el); return;
+  }
+  // Only the try-it frame runs live.
+  const f = document.createElement('iframe');
+  f.src = el.dataset.src; f.title = el.getAttribute('aria-label') || 'Counterweight';
+  el.appendChild(f); fit(el);
+  const b = document.createElement('button'); b.className = 'cover'; b.innerHTML = '<span>click to try the prototype</span>';
+  b.onclick = () => { b.remove(); f.focus(); }; el.appendChild(b);
+}), { rootMargin: '400px' });
+els.forEach(el => { size(el); io.observe(el); });
+new ResizeObserver(() => els.forEach(el => { size(el); fit(el); })).observe(document.body);
+
+// The film plays on request, and loops once started.
+// It starts muted when it comes into view, unless motion is reduced, and pauses when it leaves.
+const film = document.getElementById('film'), play = document.getElementById('play');
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const start = () => film.play().then(() => { film.controls = true; play.hidden = true; }).catch(() => {});
+play.onclick = start;
+film.addEventListener('pause', () => { if (!film.seeking) play.hidden = false; });
+film.addEventListener('play', () => { play.hidden = true; });
+new IntersectionObserver(([e]) => {
+  if (!e.isIntersecting) film.pause();
+  else if (!still) start();
+}, { threshold: 0.5 }).observe(film);
+
+// Each task loads the prototype in a state, and says what to do next.
+const proto = document.getElementById('proto'), hint = document.getElementById('hint'), full = document.getElementById('full');
+document.querySelectorAll('.tasks button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tasks button').forEach(x => x.setAttribute('aria-selected', x === b));
+  const url = `../demo/${b.dataset.q}`;
+  proto.dataset.src = url; full.href = url; hint.textContent = b.dataset.hint;
+  const f = proto.querySelector('iframe');
+  if (f) { f.src = url; proto.querySelector('.cover')?.remove(); f.focus(); }
+});
+
+// Each section fades in once, as in the portfolio.
+const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+document.querySelectorAll('.band > .wrap').forEach(el => { el.classList.add('rv'); rv.observe(el); });
+</script>
+</body>
+</html>
