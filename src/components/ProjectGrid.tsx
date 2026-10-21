@@ -56,6 +56,7 @@ const LAYOUT: string[] = [
   "vision",
   "lipi",
   "kochi1app",
+  "sangath",
   "gateway-to-kerala",
   "madipur-hospital",
   "vytilla-junction",

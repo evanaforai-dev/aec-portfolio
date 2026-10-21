@@ -90,6 +90,17 @@ export const projects: Project[] = [
     display: { fit: "cover" },
   },
   {
+    slug: "sangath",
+    title: "inside a drawing set",
+    tags: ["practice", "working drawings", "coordination"],
+    category: "playground",
+    cover: "/case/sangath/01.jpg",
+    year: "2022",
+    summary:
+      "twenty-one weeks at b.v. doshi's practice, drawing a school and a house under construction, and the problems with architects' tools i first met there.",
+    display: { fit: "cover", position: "center" },
+  },
+  {
     slug: "gateway-to-kerala",
     title: "gateway to kerala",
     tags: ["architecture", "transit-oriented development", "mixed use"],

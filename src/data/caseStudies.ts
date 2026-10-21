@@ -1325,6 +1325,105 @@ export const caseStudies: Record<string, CaseStudy> = {
   },
 
 
+  // ──────────────────────────────────────────────────────────────── sangath ──
+  sangath: {
+    slug: "sangath",
+    hero: {
+      kicker: "professional training · vastu shilpa consultants, ahmedabad",
+      title: "inside a drawing set",
+      subtitle:
+        "twenty-one weeks at sangath, b.v. doshi's practice, drawing a school and a house while they were being built. where i saw what architects spend their days on, and how much of it their tools make them do twice.",
+      media: { type: "image", src: "/case/sangath/01.jpg", width: 1920, height: 815, alt: "the vaulted studio at sangath, drawings pinned to the walls" },
+      mediaFit: "cover",
+      mediaPosition: "center",
+      meta: [
+        { label: "role", value: "architectural intern: working drawings, schedules, services, renders" },
+        { label: "context", value: "vastu shilpa consultants, under b.v. doshi and rajeev kathpalia" },
+        { label: "year", value: "january to june 2022" },
+      ],
+    },
+    sections: [
+      {
+        kind: "constraints",
+        label: "in short",
+        items: [
+          { label: "problem", text: "a drawing set is hundreds of sheets that have to agree with each other, with the model and with four consultants, while the design keeps moving under them." },
+          { label: "what i did", text: "drew good-for-construction sets for a school campus in chennai and a vaulted house in gandhinagar: sections, details, door and window schedules, flooring, electrical and hvac. competition renders, publication graphics, site visits." },
+          { label: "result", text: "the problems counterweight is built around, seen from inside a working practice before i tried to design for them." },
+        ],
+      },
+      { kind: "thesis", eyebrow: "what the work actually is", text: "an architecture office does not spend its days designing. it spends them keeping hundreds of drawings true to one another while the design changes underneath them." },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/sangath/02.jpg", width: 2160, height: 1168, alt: "construction section through two classroom blocks under a steel roof canopy" },
+        fit: "contain",
+        frame: true,
+        caption: "section 06, senior block, shiv nadar school, chennai, issued good for construction at 1:50. a 230-acre campus with phase one already built; my job was to carry phase one's drawings into the senior block, sheet by sheet.",
+      },
+      {
+        kind: "duo",
+        media: [
+          { type: "image", src: "/case/sangath/03.jpg", alt: "primary door and window schedules" },
+          { type: "image", src: "/case/sangath/04.jpg", alt: "cladding, window fixing and joinery details" },
+        ],
+        captions: [
+          { label: "door and window schedules", text: "every opening in the block, with size, sill, lintel and count. move one window on a plan and this table is wrong until someone notices." },
+          { label: "construction details", text: "cladding, window fixing and joinery, each tied back to the plans by a callout that has to stay true through every revision." },
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/sangath/05.jpg", width: 1938, height: 1415, alt: "ground floor flooring layout of a courtyard house" },
+        fit: "contain",
+        frame: true,
+        caption: "mall residence, gandhinagar: a courtyard house built as a run of concrete vaults, in revision when i joined. i redrew its sections, details, flooring and toilets, then resolved the electrical and hvac.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/sangath/06.jpg", width: 1550, height: 1445, alt: "site visit: vault formwork, scaffolding and reinforcement" },
+        fit: "contain",
+        caption: "site visit, the day the last ground-floor vault came off its formwork. here a drawing stops being a drawing: a wrong dimension is now concrete.",
+      },
+      {
+        kind: "constraints",
+        label: "what slowed every week down",
+        items: [
+          { label: "the same revision, many times", text: "one design change meant reissuing plans, sections, elevations, schedules and details by hand. the change took minutes. carrying it through the set took days." },
+          { label: "no way to compare", text: "options lived as separate files and printouts. comparing two meant opening both and holding the difference in your head, so decisions leaned on whoever argued best in the room." },
+          { label: "a platform for every step", text: "archicad for the model, autocad from consultants, enscape for renders, photoshop for post, indesign for boards, a spreadsheet for schedules. even a small change crossed four tools, and every crossing could drop something." },
+          { label: "consultants out of step", text: "structural, services, interiors and landscape each kept their own set. a shaft moved in theirs reached ours at the next coordination meeting, not before." },
+          { label: "checks by eye", text: "whether a change broke a setback, a fire distance or a schedule was found by someone noticing, not by the drawing saying so." },
+        ],
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/sangath/07.jpg", width: 2261, height: 1514, alt: "object, depth and material passes beside the base and final render of a hall" },
+        fit: "contain",
+        frame: true,
+        caption: "competition renders for the shrimad rajchandra mission campus, almora: modelled in archicad, rendered in enscape, finished in photoshop. the object, depth and material passes underneath are the same inputs ai render tools now work from, which is why counterweight treats a render as a picture of a design and never as a measurement of one.",
+      },
+      {
+        kind: "full",
+        media: { type: "image", src: "/case/sangath/08.jpg", width: 2236, height: 1438, alt: "flame university campus broken into a kit of parts: gates, screens, amphi-stairs, towers" },
+        fit: "contain",
+        frame: true,
+        caption: "flame university, pune, drawn for the firm's publication with rajeev kathpalia: a whole campus reduced to four repeated parts, gates, screens, amphi-stairs and towers, redrawn from the 3d model as line work. a design system, for a campus.",
+      },
+      {
+        kind: "flow",
+        label: "from sangath to counterweight",
+        steps: [
+          { label: "revisions repeat", note: "counterweight reads the ifc model itself, so a change is measured from geometry, not redrawn" },
+          { label: "options can't be compared", note: "early options sit side by side, judged on the same failures" },
+          { label: "tools don't talk", note: "one model in, one review out" },
+          { label: "checks by eye", note: "checks run on the model, and each one says what the drawing can and cannot support" },
+        ],
+        caption: "every row in counterweight's design started as a week at sangath.",
+      },
+      { kind: "reflection", text: "sangath taught me that the hard part of architecture is not the idea. it is keeping the idea true across every drawing, tool and consultant while it changes. every tool i build for architects starts from that week-to-week reality, not from the render." },
+    ],
+  },
+
   // ─────────────────────────────────────────────────────── gateway to kerala ──
   "gateway-to-kerala": {
     slug: "gateway-to-kerala",
