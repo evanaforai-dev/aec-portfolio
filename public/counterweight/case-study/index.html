@@ -108,7 +108,7 @@
     <p class="t-body measure" id="hint">the overlook check is open. press show in model, and the camera flies to the two facades it measured.</p>
     <a class="t-note" id="full" href="../demo/?check=overlook" target="_blank" rel="noopener">open full screen ↗</a>
   </div>
-  <p class="t-note t-dim measure" style="margin-top:16px">the canvas stands in for the design platform. overlook and the bin route are measured live from the geometry; the other checks use recorded, illustrative evidence.</p>
+  <p class="t-note t-dim measure" style="margin-top:16px">the canvas stands in for the design platform. overlook and the bin route are measured live from the geometry. the six sample options use recorded, illustrative evidence for the other checks; an ifc file you drop in gets estimates from its massing for four of them, as ranges that state their assumptions.</p>
 </div></section>
 
 <!-- the turn -->
@@ -433,6 +433,7 @@
       <p class="t-body">the prototype is a typescript monorepo. the comparison rules sit in a package with no dependencies. every message between widget and platform follows a versioned schema, with json schema generated for adapters written in c# or ruby. the 3d canvas is a stand-in platform behind a real adapter, so the widget cannot tell it from a rhino plugin.</p>
       <p class="t-body">two checks, overlook and the bin route, are measured from the model's own geometry. an edit in the platform is what moves their numbers, and show in model draws the exact line or route that was measured.</p>
       <p class="t-body">an ifc file dropped on the canvas becomes a new option. the adapter turns walls, slabs and roofs into the volumes the readers measure, squares the model to its own grid, keeps a canopy on columns off the ground so bins can pass under it, and finds the bin store, the lobby and the collection point by the names offices already give them.</p>
+      <p class="t-body">four more checks get an estimate when nothing better exists: rain noise, pooling, glass you can't reach and the step-free route. a massing has no windows, drains or doors, so each estimate reads what it does have (storeys, roofs, plan shape), states its assumptions and returns a range, never a single number, along with the drawing that would make it measurable. replacing big equipment has no estimate: it needs door widths. a reading or a recording always wins over an estimate.</p>
     </div>
   </div>
   <div class="g12" style="margin-top:64px">
@@ -446,13 +447,14 @@
         <li><span>number read from an ai reference</span><span>hidden until asked for</span></li>
       </ul>
       <p class="t-body measure" style="margin-top:28px">no model decides a verdict, so the same inputs always give the same answer. property tests generate thousands of random cases and assert what must always hold: a range never wins on its best case, the order of options changes nothing, moving the whole model changes nothing, a bin route never cuts through a building.</p>
-      <p class="t-body measure">to test the tests, i planted fifteen bugs, from comparing midpoints instead of worst cases to letting bins walk through walls. all fifteen were caught by the 91 automated tests. the ifc adapter is tested end to end: models written in millimetres, turned off the grid and moved to survey coordinates must read the same as the boxes they were drawn from.</p>
+      <p class="t-body measure">to test the tests, i planted fifteen bugs, from comparing midpoints instead of worst cases to letting bins walk through walls. all fifteen were caught by the automated tests, 91 at the time and 97 now. the ifc adapter is tested end to end: models written in millimetres, turned off the grid and moved to survey coordinates must read the same as the boxes they were drawn from.</p>
+      <p class="t-body measure">then i ran it on five public ifc models, including one exported from revit and turned 37° on site. all five loaded. the bin route refused on every one, correctly: none had a space named as a refuse store. but overlook read 0.1 to 1 m inside single buildings. a low roof between two taller parts looked like open air, and thin strips the adapter dropped left slivers that read as gaps. facades now overlook only across at least a storey of open air, along at least a window's width, and the adapter keeps every strip. the case study's readings did not move.</p>
     </div>
   </div>
   <div class="g12" style="margin-top:64px">
     <h3 class="label t-dim c3">what this does not prove</h3>
     <div class="c9 measure">
-      <p class="t-body">the tests prove the comparison is consistent and conservative, and that the two readers measure the geometry they are given. they do not prove these are the right checks, or that a real office model arrives clean: layers misnamed, rooms unnamed, a bin store drawn as a line. the other five checks still read recorded, illustrative evidence. before any check is trusted on a real project it needs a written claim, the geometry it requires, the inputs that make it invalid, tests on real models and a reviewer with the right expertise.</p>
+      <p class="t-body">the tests prove the comparison is consistent and conservative, and that the two readers measure the geometry they are given. they do not prove these are the right checks, or that a real office model arrives clean: layers misnamed, rooms unnamed, a bin store drawn as a line. the other five checks are recorded, illustrative evidence or, for a dropped ifc file, estimates from stated assumptions; an estimate is a guess with its reasons shown, not a measurement. before any check is trusted on a real project it needs a written claim, the geometry it requires, the inputs that make it invalid, tests on real models and a reviewer with the right expertise.</p>
     </div>
   </div>
 </div></section>
