@@ -1,0 +1,665 @@
+{
+  "project": {
+    "id": "mill",
+    "name": "Mill Yard",
+    "brief": "32 homes and workshops · mixed inputs",
+    "file": "Mill Yard · Early options",
+    "stage": "Concept review",
+    "comments": [
+      {
+        "ck": "overlook",
+        "who": "SA",
+        "at": "Mon",
+        "t": "The scale bar on my plan was redrawn by hand. Treat the courtyard width as approximate."
+      },
+      {
+        "ck": "cleaning",
+        "who": "ES",
+        "at": "Tue",
+        "s": "E",
+        "t": "Love the tall gable glazing in this reference, but who cleans it?"
+      }
+    ]
+  },
+  "presentation": {
+    "A": {
+      "short": "Stepped",
+      "color": "#0072b2"
+    },
+    "B": {
+      "short": "Two wings",
+      "color": "#e69f00"
+    },
+    "C": {
+      "short": "Court plan",
+      "color": "#009e73"
+    },
+    "D": {
+      "short": "Gabled ref",
+      "color": "#d55e00",
+      "img": "assets/ref-gabled-aerial.webp",
+      "ar": 1
+    },
+    "E": {
+      "short": "Brick ref",
+      "color": "#cc79a7",
+      "img": "assets/ref-brick-hall.jpg",
+      "ar": 1.2740740740740741
+    }
+  },
+  "checks": [
+    {
+      "id": "overlook",
+      "icon": "eye-slash",
+      "name": "Overlook between homes",
+      "q": "How close do facing homes get to each other?",
+      "metric": "Closest facing facades",
+      "unit": "m",
+      "better": "higher",
+      "tol": 0.6,
+      "tolSrc": "Massing and plans read to about ±0.5 m. Rounded up.",
+      "scale": [0, 20],
+      "on": "Facade-to-facade separation",
+      "boundary": "Separation is geometry. Whether residents feel overlooked also depends on window placement, glazing, screening and how rooms are used."
+    },
+    {
+      "id": "cleaning",
+      "icon": "app-window",
+      "name": "Glass you can’t reach",
+      "q": "How much glazing can only be cleaned or replaced from outside?",
+      "metric": "Glazing not reachable from inside or a balcony",
+      "unit": "%",
+      "better": "lower",
+      "tol": 3,
+      "tolSrc": "How fixed panes are classified moves the share by about 3 points.",
+      "scale": [0, 60],
+      "on": "Share of glazing with no inside or balcony access",
+      "boundary": "This flags access, not cost. It does not know your maintenance contract, access equipment or cleaning frequency."
+    },
+    {
+      "id": "rain",
+      "icon": "cloud-rain",
+      "name": "Rain noise over bedrooms",
+      "q": "Are there roofs directly below bedroom windows?",
+      "metric": "Roof surfaces directly below habitable windows",
+      "unit": "",
+      "better": "lower",
+      "tol": 0.5,
+      "tolSrc": "Counts are whole surfaces, so one surface is a real difference.",
+      "scale": [0, 12],
+      "on": "Count of roof surfaces within 3 m below a habitable window",
+      "boundary": "A canopy directly below a window is a geometric condition. Whether rain is audible depends on roof build-up and room construction."
+    },
+    {
+      "id": "stepfree",
+      "icon": "wheelchair",
+      "name": "Step-free route home",
+      "q": "How far is the longest step-free route from the entrance to a front door?",
+      "metric": "Longest step-free route, entrance to front door",
+      "unit": "m",
+      "better": "lower",
+      "tol": 2,
+      "tolSrc": "Routes traced on plan read to about ±2 m.",
+      "scale": [0, 80],
+      "on": "Route length on plan, entrance to the furthest front door",
+      "boundary": "Route length is geometry. It does not show gradients, door weights or how the route feels to use."
+    },
+    {
+      "id": "waste",
+      "icon": "trash",
+      "name": "Bins & deliveries",
+      "q": "How far do bins travel to the kerb, and do they cross the entrance?",
+      "metric": "Bin store to collection kerb",
+      "unit": "m",
+      "better": "lower",
+      "tol": 0.6,
+      "tolSrc": "Massing and plans read to about ±0.5 m. Rounded up.",
+      "scale": [0, 24],
+      "on": "Distance from bin store to the collection kerb",
+      "boundary": "This measures the route, not collection practice. Local collection rules are not checked."
+    },
+    {
+      "id": "plant",
+      "icon": "engine",
+      "name": "Replacing big equipment",
+      "q": "Can large plant come out and go back in without demolition?",
+      "metric": "Clear service route for the largest plant item",
+      "unit": "m",
+      "better": "higher",
+      "tol": 0.1,
+      "tolSrc": "Door and corridor widths read to ±0.1 m.",
+      "scale": [0, 3],
+      "on": "Clear width of the plant replacement route",
+      "boundary": "Needs a plant schedule and a classified service route before anything can be said."
+    },
+    {
+      "id": "pooling",
+      "icon": "drop",
+      "name": "Water & debris pooling",
+      "q": "Are there flat surfaces where water or debris has nowhere to go?",
+      "metric": "Flat roof or terrace areas with no drain found",
+      "unit": "",
+      "better": "lower",
+      "tol": 0.5,
+      "tolSrc": "Counts are whole areas, so one area is a real difference.",
+      "scale": [0, 10],
+      "on": "Flat areas with no drain object",
+      "boundary": "A missing drain object may be unmodelled rather than absent. Treat this as a question for the model, not a defect."
+    }
+  ],
+  "alternatives": [
+    {
+      "id": "A",
+      "name": "Stepped block",
+      "input": "massing",
+      "inputLabel": "3D massing",
+      "file": "stepped_massing.3dm",
+      "detail": "4 volumes · no openings",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "A.south-bar",
+          "category": "volume",
+          "name": "south bar",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -20.25, 0],
+            "max": [20, -6.75, 9]
+          }
+        },
+        {
+          "id": "A.south-step",
+          "category": "volume",
+          "name": "south bar, upper storeys",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -20.25, 9],
+            "max": [8, -6.75, 15]
+          }
+        },
+        {
+          "id": "A.north-bar",
+          "category": "volume",
+          "name": "north bar",
+          "geometry": {
+            "type": "box",
+            "min": [-20, 6.75, 0],
+            "max": [20, 20, 12]
+          }
+        },
+        {
+          "id": "A.north-step",
+          "category": "volume",
+          "name": "north bar, upper storeys",
+          "geometry": {
+            "type": "box",
+            "min": [-8, 6.75, 12],
+            "max": [20, 20, 18]
+          }
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Two wings",
+      "input": "massing",
+      "inputLabel": "3D massing",
+      "file": "twowings_massing.3dm",
+      "detail": "2 volumes · no openings",
+      "units": "m",
+      "scale": "Model units",
+      "scaleVerified": true,
+      "ref": false,
+      "geometry": [
+        {
+          "id": "B.west-wing",
+          "category": "volume",
+          "name": "west wing",
+          "geometry": {
+            "type": "box",
+            "min": [-20, -18, 0],
+            "max": [-5.4, 18, 15]
+          }
+        },
+        {
+          "id": "B.east-wing",
+          "category": "volume",
+          "name": "east wing",
+          "geometry": {
+            "type": "box",
+            "min": [5.4, -18, 0],
+            "max": [20, 18, 12]
+          }
+        },
+        {
+          "id": "B.link",
+          "category": "volume",
+          "name": "link",
+          "geometry": {
+            "type": "box",
+            "min": [-5.4, 12, 0],
+            "max": [5.4, 18, 4]
+          }
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Courtyard plan",
+      "input": "plan",
+      "inputLabel": "2D plan",
+      "file": "courtyard_GA_L00.pdf",
+      "detail": "1 sheet · ground floor only · hand-drawn scale bar",
+      "units": "m",
+      "scale": "Scale bar only, not checked",
+      "scaleVerified": false,
+      "ref": false,
+      "geometry": []
+    },
+    {
+      "id": "D",
+      "name": "Gabled lanes",
+      "input": "render",
+      "inputLabel": "AI render · reference",
+      "file": "ref_gabled_aerial.webp",
+      "detail": "1200 × 1200 · AI-generated · people as the only scale cue",
+      "units": "px",
+      "scale": "No reliable scale",
+      "scaleVerified": false,
+      "ref": true,
+      "geometry": []
+    },
+    {
+      "id": "E",
+      "name": "Brick hall",
+      "input": "render",
+      "inputLabel": "AI render · reference",
+      "file": "ref_brick_hall.jpg",
+      "detail": "860 × 675 · AI-generated · no scale anchor",
+      "units": "px",
+      "scale": "No scale",
+      "scaleVerified": false,
+      "ref": true,
+      "geometry": []
+    }
+  ],
+  "evidence": [
+    {
+      "check": "overlook",
+      "alternative": "C",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 11.3,
+        "hi": 12.8,
+        "text": "Across the courtyard on the ground floor. 12.2 m at the drawn scale.",
+        "src": "Plan geometry, hand-drawn scale bar"
+      },
+      "elements": ["C.overlook"]
+    },
+    {
+      "check": "overlook",
+      "alternative": "D",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 8,
+        "hi": 14,
+        "text": "Gabled blocks face each other across a shared lane.",
+        "src": "People in the lane used as a 1.7 m scale cue"
+      },
+      "elements": ["D.overlook"],
+      "excluded": "Scaled from people in the image, so the range is too loose to rank.",
+      "region": [0.1667, 0.1667, 0.4583, 0.4444]
+    },
+    {
+      "check": "overlook",
+      "alternative": "E",
+      "evidence": {
+        "kind": "observed",
+        "text": "A single hall facing a garden. No homes face it.",
+        "src": "Image region, garden front"
+      },
+      "elements": ["E.overlook"],
+      "excluded": "Only one building is visible, so there is nothing facing it.",
+      "region": [0.2083, 0.2222, 0.7917, 0.6111]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "A",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 18,
+        "hi": 30,
+        "text": "Step-backs give outside access to the upper floors on two sides.",
+        "src": "Mesh setbacks"
+      },
+      "elements": ["A.cleaning"]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "B",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 26,
+        "hi": 40,
+        "text": "Straight wings with no setbacks above the ground floor.",
+        "src": "Mesh faces"
+      },
+      "elements": ["B.cleaning"]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Window heights and opening types are not on the plan.",
+        "needs": "Elevations or a window schedule"
+      },
+      "elements": [],
+      "excluded": "The plan has no window heights or opening types."
+    },
+    {
+      "check": "cleaning",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Full-height glazing behind roof terraces. Two glasshouses are glazed on every face.",
+        "src": "Image region, glasshouses"
+      },
+      "elements": ["D.cleaning"],
+      "excluded": "Visual only. No share can be read from one view.",
+      "region": [0, 0.5278, 0.5, 0.4722]
+    },
+    {
+      "check": "cleaning",
+      "alternative": "E",
+      "evidence": {
+        "kind": "observed",
+        "text": "A fully glazed ground floor, and tall glazing in the gable above the green roof.",
+        "src": "Image region, entrance front"
+      },
+      "elements": ["E.cleaning"],
+      "excluded": "Visual only. AI-generated reference. Proportions may not be physically consistent, so nothing is measured from it.",
+      "region": [0.3375, 0.2222, 0.2958, 0.5611]
+    },
+    {
+      "check": "rain",
+      "alternative": "A",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 3,
+        "hi": 6,
+        "text": "The step roofs sit directly below upper volumes.",
+        "src": "Mesh adjacency"
+      },
+      "elements": ["A.rain"]
+    },
+    {
+      "check": "rain",
+      "alternative": "B",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 0,
+        "hi": 1,
+        "text": "One low link roof between the wings.",
+        "src": "Mesh adjacency"
+      },
+      "elements": ["B.rain"]
+    },
+    {
+      "check": "rain",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "The plan has no vertical information.",
+        "needs": "A section or a 3D model"
+      },
+      "elements": []
+    },
+    {
+      "check": "rain",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Roof terraces sit directly below upper-floor windows.",
+        "src": "Image region, roof terraces"
+      },
+      "elements": ["D.rain"],
+      "excluded": "Visual only.",
+      "region": [0.45, 0.35, 0.25, 0.2]
+    },
+    {
+      "check": "rain",
+      "alternative": "E",
+      "evidence": {
+        "kind": "observed",
+        "text": "The green roof canopy runs just below the gable windows.",
+        "src": "Image region, gable and canopy"
+      },
+      "elements": ["E.rain"],
+      "excluded": "Visual only.",
+      "region": [0.3958, 0.4167, 0.2542, 0.2333]
+    },
+    {
+      "check": "stepfree",
+      "alternative": "A",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No entrances or cores in the massing.",
+        "needs": "Floor plans or a model with cores"
+      },
+      "elements": []
+    },
+    {
+      "check": "stepfree",
+      "alternative": "B",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No entrances or cores in the massing.",
+        "needs": "Floor plans or a model with cores"
+      },
+      "elements": []
+    },
+    {
+      "check": "stepfree",
+      "alternative": "C",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 35,
+        "hi": 41,
+        "text": "Entrance to the furthest ground-floor front door. 38 m at the drawn scale.",
+        "src": "Plan geometry · door symbols"
+      },
+      "elements": ["C.stepfree"]
+    },
+    {
+      "check": "stepfree",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Spiral stairs are visible. No step-free route is shown.",
+        "needs": "A ground floor plan"
+      },
+      "elements": []
+    },
+    {
+      "check": "stepfree",
+      "alternative": "E",
+      "evidence": {
+        "kind": "observed",
+        "text": "A level entrance from the path, under the canopy.",
+        "src": "Image region, entrance path"
+      },
+      "elements": ["E.stepfree"],
+      "excluded": "Visual only.",
+      "region": [0.6958, 0.75, 0.3042, 0.25]
+    },
+    {
+      "check": "waste",
+      "alternative": "C",
+      "evidence": {
+        "kind": "estimated",
+        "lo": 8.4,
+        "hi": 9.6,
+        "text": "Bin store beside the yard gate. 9 m at the drawn scale.",
+        "src": "Plan room labels · gate symbol"
+      },
+      "elements": ["C.waste"]
+    },
+    {
+      "check": "waste",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No bin store visible.",
+        "needs": "A ground floor plan"
+      },
+      "elements": []
+    },
+    {
+      "check": "waste",
+      "alternative": "E",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No bin store visible.",
+        "needs": "A ground floor plan"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "A",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No plant spaces in the massing.",
+        "needs": "A model with plant spaces"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "B",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No plant spaces in the massing.",
+        "needs": "A model with plant spaces"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "A plant room is labelled but no equipment or service route is drawn.",
+        "needs": "Plant schedule · service route"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "D",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Not visible.",
+        "needs": "Any drawing of plant areas"
+      },
+      "elements": []
+    },
+    {
+      "check": "plant",
+      "alternative": "E",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "Not visible.",
+        "needs": "Any drawing of plant areas"
+      },
+      "elements": []
+    },
+    {
+      "check": "pooling",
+      "alternative": "A",
+      "evidence": {
+        "kind": "observed",
+        "text": "4 flat roof terraces. Drainage not represented.",
+        "src": "Mesh normals"
+      },
+      "elements": [],
+      "excluded": "Drainage is not represented in massing."
+    },
+    {
+      "check": "pooling",
+      "alternative": "B",
+      "evidence": {
+        "kind": "observed",
+        "text": "2 flat roofs. Drainage not represented.",
+        "src": "Mesh normals"
+      },
+      "elements": [],
+      "excluded": "Drainage is not represented in massing."
+    },
+    {
+      "check": "pooling",
+      "alternative": "C",
+      "evidence": {
+        "kind": "unavailable",
+        "text": "No roof plan supplied.",
+        "needs": "A roof plan"
+      },
+      "elements": []
+    },
+    {
+      "check": "pooling",
+      "alternative": "D",
+      "evidence": {
+        "kind": "observed",
+        "text": "Flat roof terraces with planters. No drains visible.",
+        "src": "Image region, roof terraces"
+      },
+      "elements": ["D.pooling"],
+      "excluded": "Visual only.",
+      "region": [0.45, 0.35, 0.25, 0.2]
+    },
+    {
+      "check": "pooling",
+      "alternative": "E",
+      "evidence": {
+        "kind": "observed",
+        "text": "A green roof over the entrance canopy. Its edges are not visible.",
+        "src": "Image region, canopy"
+      },
+      "elements": ["E.pooling"],
+      "excluded": "Visual only.",
+      "region": [0.625, 0.5, 0.375, 0.1222]
+    }
+  ],
+  "edit": {
+    "alternative": "B",
+    "on": "Two wings: east wing pulled back 3.1 m",
+    "off": "Two wings: east wing moved back to its first position",
+    "geometry": [
+      {
+        "id": "B.east-wing",
+        "category": "volume",
+        "name": "east wing",
+        "geometry": {
+          "type": "box",
+          "min": [8.5, -18, 0],
+          "max": [23.1, 18, 12]
+        }
+      },
+      {
+        "id": "B.link",
+        "category": "volume",
+        "name": "link",
+        "geometry": {
+          "type": "box",
+          "min": [-5.4, 12, 0],
+          "max": [8.5, 18, 4]
+        }
+      }
+    ]
+  }
+}
